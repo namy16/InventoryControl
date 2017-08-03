@@ -12,7 +12,7 @@ public class SoldSparePart  {
     @Column
     int id;
 
-    @Column
+    @Column(unique = true)
     int sparePartId;
 
     @Column

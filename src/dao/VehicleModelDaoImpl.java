@@ -7,8 +7,10 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import utils.VehicleModel;
 
+import javax.persistence.Query;
 import java.sql.Connection;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by parashan on 8/2/2017.
@@ -36,7 +38,10 @@ public class VehicleModelDaoImpl {
         }
         return 1;
     }
-    public void updateVehicle(VehicleModel v) {
+    public int updateVehicleModel(VehicleModel v) {
+        Configuration configuration = new Configuration();
+        configuration.configure();
+        factory = configuration.buildSessionFactory();
         Session session = factory.openSession();
         Object o = session.load(VehicleModel.class, v.getModelId());
         VehicleModel v1 = (VehicleModel) o;
@@ -44,7 +49,40 @@ public class VehicleModelDaoImpl {
         v1.setUnits(v.getUnits());
         tx.commit();
         session.close();
+        return  1;
+    }
+    public VehicleModel findVehicleModel(int modelId){
+        Configuration configuration = new Configuration();
+        configuration.configure();
+        factory = configuration.buildSessionFactory();
+        Session session = factory.openSession();
+        Query q = session.createQuery("from VehicleModel where modelId = :modelId");
+        q.setParameter("modelId", modelId);
+        if(q.getSingleResult() == null){
+            return null;
+        }
+        return (VehicleModel) q.getSingleResult();
+    }
+
+    public List<VehicleModel> listVehicleModels( ){
+        Configuration configuration = new Configuration();
+        configuration.configure();
+        factory = configuration.buildSessionFactory();
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            Query qry = session.createQuery("FROM VehicleModel ");
+            List vehicles = qry.getResultList();
+            tx.commit();
+            return vehicles;
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return null;
     }
 }
 
-}

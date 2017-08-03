@@ -12,7 +12,7 @@ public class SoldVehicleModel  {
     @Column
     int vehicleId;
 
-    @Column
+    @Column(unique = true)
     int modelId;
 
     @Column
