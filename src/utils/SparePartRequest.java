@@ -17,7 +17,7 @@ public class SparePartRequest {
     @Column
     int requestId;
 
-    @Column
+    @Column(unique = true)
     int sparePartId;
 
     @Column

@@ -16,7 +16,7 @@ public class VehicleModelRequest {
     @Column
     int requestId;
 
-    @Column
+    @Column(unique = true)
     int modelId;
 
     @Column

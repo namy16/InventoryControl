@@ -54,9 +54,6 @@ import java.util.Set;
     public VehicleModel() {
     }
 
-    @OneToMany
-    @JoinTable(name = "vehiclemodels", joinColumns = { @JoinColumn(name = "modelid") }, inverseJoinColumns = { @JoinColumn(name = "modelid") })
-
     public int getModelId() {
         return modelId;
     }

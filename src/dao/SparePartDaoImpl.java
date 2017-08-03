@@ -6,9 +6,12 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import utils.SparePart;
+import utils.SparePartRequest;
 import utils.VehicleModel;
 
+import javax.persistence.Query;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by parashan on 8/2/2017.
@@ -35,5 +38,50 @@ public class SparePartDaoImpl {
             session.close();
         }
         return 1;
+    }
+    public int updateSparePart(SparePart s) {
+        Configuration configuration = new Configuration();
+        configuration.configure();
+        factory = configuration.buildSessionFactory();
+        Session session = factory.openSession();
+        Object o = session.load(SparePart.class, s.getSparePartId());
+        SparePart s1 = (SparePart) o;
+        Transaction tx = session.beginTransaction();
+        s1.setUnits(s.getUnits());
+        tx.commit();
+        session.close();
+        return  1;
+    }
+    public SparePart findSparePart(int sparePartId){
+        Configuration configuration = new Configuration();
+        configuration.configure();
+        factory = configuration.buildSessionFactory();
+        Session session = factory.openSession();
+        Query q = session.createQuery("from SparePart where sparePartId = :sparePartId");
+        q.setParameter("sparePartId", sparePartId);
+        if(q.getSingleResult() == null){
+            return null;
+        }
+        return (SparePart) q.getSingleResult();
+    }
+    public List<SparePart> listSpareParts( ){
+        Configuration configuration = new Configuration();
+        configuration.configure();
+        factory = configuration.buildSessionFactory();
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            Query qry = session.createQuery("FROM SparePart ");
+            List spareparts = qry.getResultList();
+            tx.commit();
+            return spareparts;
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return null;
     }
 }

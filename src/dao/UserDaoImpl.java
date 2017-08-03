@@ -7,8 +7,11 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import utils.SparePart;
 import utils.User;
+import utils.VehicleModel;
 
+import javax.persistence.Query;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by parashan on 8/2/2017.
@@ -35,6 +38,43 @@ public class UserDaoImpl {
             session.close();
         }
         return 1;
+    }
+
+    public User findUser(String emailId){
+        Configuration configuration = new Configuration();
+        configuration.configure();
+        factory = configuration.buildSessionFactory();
+        Session session = factory.openSession();
+        Query q = session.createQuery("from User where emailId = :emailId");
+        q.setParameter("emailId", emailId);
+        if(q.getSingleResult() == null){
+            return null;
+        }
+        return (User) q.getSingleResult();
+    }
+
+
+
+
+    public List<User> listUsers( ){
+        Configuration configuration = new Configuration();
+        configuration.configure();
+        factory = configuration.buildSessionFactory();
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            Query qry = session.createQuery("FROM User");
+            List users = qry.getResultList();
+            tx.commit();
+            return users;
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return null;
     }
 
 }
