@@ -9,13 +9,18 @@
 <html>
   <head>
     <title>$Title$</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <script src="https://use.fontawesome.com/9d0c2e3dbb.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.js"></script>
     <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css'>
     <link rel = "stylesheet" type = "text/css" href = "css/myCss.css" />
+    <link rel = "stylesheet" type = "text/css" href = "css/table.css" />
     <script src="js/myJs.js"></script>
+    <script src="js/controllers.js"></script>
+
   </head>
-  <body>
+  <body ng-app="myApp" ng-controller="myController">
   <div id="wrapper">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
@@ -42,20 +47,20 @@
       </div>
     </nav>
     <!-- Sidebar -->
-    <div id="sidebar-wrapper">
+    <div id="sidebar-wrapper" >
       <nav id="spy">
         <ul class="sidebar-nav nav">
           <li class="sidebar-brand">
-            <a href="#home"><span class="fa fa-home solo">Add Vehicle Model</span></a>
+            <a href="#home"><span class="fa fa-home solo">Admin</span></a>
           </li>
           <li>
-            <a href="#anch1">
-              <span class="fa fa-anchor solo">View Vehicle Model</span>
+            <a href="#anch1" ng-click="addVehicleModel()">
+              <span class="fa fa-anchor solo">Add Vehicle Model</span>
             </a>
           </li>
           <li>
-            <a href="#anch2">
-              <span class="fa fa-anchor solo">Pending Requests</span>
+            <a href="#anch2" ng-click="viewVehicleModels()">
+              <span class="fa fa-anchor solo">View Vehicle Models</span>
             </a>
           </li>
           <li>
@@ -72,34 +77,17 @@
       </nav>
     </div>
     <!-- Page content -->
-    <div id="page-content-wrapper">
+    <div id="page-content-wrapper" ng-show="addvehiclemodel">
       <div class="page-content">
         <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="panel panel-danger">
-                <div class="panel-heading">
-                  Panel 1
-                </div>
-                <div class="panel-body">
-                  content body
-                </div>
+                <div class="panel-body" ng-include ="addUrl()">
+
+
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="panel panel-success">
-                <div class="panel-heading">
-                  Panel 1
-                </div>
-                <div class="panel-body">
-                  content body
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
-      </div>
-    </div>
   </div>
   </body>
 </html>
