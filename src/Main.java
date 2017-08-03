@@ -24,6 +24,7 @@ public class Main {
         } catch (Throwable ex) {
             throw new ExceptionInInitializerError(ex);
         }
+        getSession();
     }
 
     public static Session getSession() throws HibernateException {
