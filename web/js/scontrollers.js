@@ -1,14 +1,32 @@
 /**
- * Created by prajapas on 8/3/2017.
+ * Created by parashan on 8/3/2017.
  */
-/**
- * Created by prajapas on 8/3/2017.
- */
-var app = angular.module('demo', []);
+var app = angular.module('myApp', []);
+app.controller('myController', function($scope) {
+    $scope.addvehiclemodel = false;//initially will be made false
+    $scope.addVehicleModel = function() { //whenever myFunc() is called, display of above div is toggled
+        $scope.addvehiclemodel = true;
+        $scope.addUrl=function () {
+            return '/AddVehicleModel.jsp';
+        }
+    };
+    $scope.viewVehicleModels = function() { //whenever myFunc() is called, display of above div is toggled
+        $scope.addvehiclemodel = true;
+        $scope.addUrl=function () {
+            return '/ViewVehicleModels.jsp';
+        }
+    }
+});
 app.controller('viewVehicleController', function($scope, $http) {
     $http.get('http://localhost:8080/rest/server/viewVehicleModel').
     then(function(response) {
-        $scope.greeting = response.data;
+        $scope.data = response.data;
+    });
+});
+app.controller('viewSparePartController', function($scope, $http) {
+    $http.get('http://localhost:8080/rest/server/viewSparePart').
+    then(function(response) {
+        $scope.data = response.data;
     });
 });
 app.controller('postVehicleModel', function ($scope, $http) {
@@ -21,6 +39,7 @@ app.controller('postVehicleModel', function ($scope, $http) {
     $scope.units = null;
     $scope.description = null;
     $scope.releaseDate = null;
+    //console.log("inpost");
     $scope.postdata = function () {
         var data = {
             modelId : 10,
@@ -31,9 +50,9 @@ app.controller('postVehicleModel', function ($scope, $http) {
             bodyType : "coupe",
             units : 10,
             description : "quick_left",
-            releaseDate : "11/11/1992"
+            releaseDate : "1992-11-11"
         };
-        $http.post('http://localhost:8080/rest/client/vehicleModel', JSON.stringify(data)).then(function (response) {
+        $http.post('http://localhost:8080/rest/server/getVehicle', data).then(function (response) {
             if (response.data)
                 $scope.msg = "Post Data Submitted Successfully!";
         }, function (response) {
@@ -43,4 +62,45 @@ app.controller('postVehicleModel', function ($scope, $http) {
             $scope.headers = response.headers();
         });
     };
+});
+
+app.controller('postVehicleModel', function ($scope, $http) {
+    $scope.sparePartId= null;
+    $scope.vehicleModelId = null;
+    $scope.sparePartName = null;
+    $scope.image = null;
+    $scope.units = null;
+    $scope.orderedOn = null;
+    //console.log("inpost");
+    $scope.postdata = function () {
+        var data = {
+            sparePartId :"1223",
+            vehicleModelId : 12,
+            sparePartName : "thor's hammer",
+            image : "address",
+            units : 10,
+            orderedOn : "1992-11-28",
+        };
+        $http.post('http://localhost:8080/rest/server/getSparePart', data).then(function (response) {
+            if (response.data)
+                $scope.msg = "Post Data Submitted Successfully!";
+        }, function (response) {
+            $scope.msg = "Service not Exists";
+            $scope.statusval = response.status;
+            $scope.statustext = response.statusText;
+            $scope.headers = response.headers();
+        });
+    };
+});
+app.controller('viewSoldVehicleController', function($scope, $http) {
+    $http.get('http://localhost:8080/rest/server/viewSoldVehicle').
+    then(function(response) {
+        $scope.data = response.data;
+    });
+});
+app.controller('viewSoldSparePartController', function($scope, $http) {
+    $http.get('http://localhost:8080/rest/server/viewSoldSparePart').
+    then(function(response) {
+        $scope.data = response.data;
+    });
 });
