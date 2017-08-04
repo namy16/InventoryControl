@@ -1,4 +1,16 @@
-#success_message{ display: none;}
+
+#mypanelheading{
+    text-align: center;
+    background: #929e9e url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+    color: #011635;
+}
+.mypanelheading{
+    font-weight: 900;
+}
+#contact_form{
+    background: #929e9e url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+}
+
 #wrapper {
     padding-left: 250px;
     transition: all 0.4s ease 0s;
@@ -16,7 +28,9 @@
     z-index: 1000;
     transition: all 0.4s ease 0s;
 }
-
+#col-md-4.control-label{
+    color: #011635;;
+}
 #wrapper.active {
     padding-left: 0;
 }
@@ -41,21 +55,23 @@
 }
 
 .sidebar-nav li {
-    line-height: 40px;
+    padding: 5px;
+    line-height: 60px;
     text-indent: 20px;
+    border-bottom: 1px solid white;
 }
 
 .sidebar-nav li a {
-    color: #999999;
+    color: white;
     display: block;
     text-decoration: none;
-    padding-left: 60px;
+    padding-left: 0px;
 }
 
 .sidebar-nav li a span:before {
     position: absolute;
     left: 0;
-    color: #41484c;
+    color: white;
     text-align: center;
     width: 20px;
     line-height: 18px;
@@ -64,23 +80,24 @@
 .sidebar-nav li a:hover,
 .sidebar-nav li.active {
     color: #fff;
-    background: rgba(255,255,255,0.2);
+    background: darkcyan;
     text-decoration: none;
 }
 
 .sidebar-nav li a:active,
 .sidebar-nav li a:focus {
+    background: darkcyan;
     text-decoration: none;
 }
 
 .sidebar-nav > .sidebar-brand {
     height: 65px;
     line-height: 60px;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .sidebar-nav > .sidebar-brand a {
-    color: #999999;
+    color:white;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {

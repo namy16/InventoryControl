@@ -14,54 +14,110 @@ app.controller('myController', function($scope) {
         $scope.addvehiclemodel = true;
         $scope.addUrl=function () {
             return '/ViewVehicleModels.jsp';
-        }
-    }
-});
+        };
+        $scope.addSparePart = function() {
+            //whenever myFunc() is called, display of above div is toggled
+            $scope.addvehiclemodel = true;
+            $scope.addUrl=function () {
+                return '/AddSparePart.jsp';
+            }
+        };
+        $scope.viewSpareParts = function() {
+            //whenever myFunc() is called, display of above div is toggled
+            $scope.addvehiclemodel = true;
+            $scope.addUrl=function () {
+                return '/ViewSpareParts.jsp';
+            }
+        };
+        $scope.soldVehicleModels = function() {
+            //whenever myFunc() is called, display of above div is toggled
+            $scope.addvehiclemodel = true;
+            $scope.addUrl=function () {
+                return '/SoldVehicleModels.jsp';
+            }
+        };
+        $scope.soldSpareParts = function() {
+            //whenever myFunc() is called, display of above div is toggled
+            $scope.addvehiclemodel = true;
+            $scope.addUrl=function () {
+                return '/SoldSpareParts.jsp';
+            }
+        };
+        $scope.requestVehicleModel = function() {
+            //whenever myFunc() is called, display of above div is toggled
+            $scope.addvehiclemodel = true;
+            $scope.addUrl=function () {
+                return '/VehicleModelRequest.jsp';
+            }
+        };
+        $scope.requestSparePart = function() {
+            //whenever myFunc() is called, display of above div is toggled
+            $scope.addvehiclemodel = true;
+            $scope.addUrl=function () {
+                return '/SparePartRequest.jsp';
+            }
+        };
+        $scope.viewVehicleModelRequest = function() {
+            //whenever myFunc() is called, display of above div is toggled
+            $scope.addvehiclemodel = true;
+            $scope.addUrl=function () {
+                return '/ViewVehicleModelRequest.jsp';
+            }
+        };
+        $scope.viewSparePartRequest = function() {
+            //whenever myFunc() is called, display of above div is toggled
+            $scope.addvehiclemodel = true;
+            $scope.addUrl=function () {
+                return '/ViewSparePartRequest.jsp';
+            }
+        };
+    }});
+
 
 /*
-* Controllers which are getting the requests
-* */
-app.controller('viewVehicleController', function($scope, $http) {
-    $http.get('http://localhost:8080/rest/server/viewVehicleModel').
-    then(function(response) {
-        $scope.data = response.data;
+ * Controllers which are getting the requests
+ * */
+    app.controller('viewVehicleController', function($scope, $http) {
+        $http.get('http://localhost:8080/rest/server/viewVehicleModel').
+        then(function(response) {
+            $scope.data = response.data;
+        });
     });
-});
-app.controller('viewSparePartController', function($scope, $http) {
-    $http.get('http://localhost:8080/rest/server/viewSparePart').
-    then(function(response) {
-        $scope.data = response.data;
+    app.controller('viewSparePartController', function($scope, $http) {
+        $http.get('http://localhost:8080/rest/server/viewSparePart').
+        then(function(response) {
+            $scope.data = response.data;
+        });
     });
-});
-app.controller('viewSoldVehicleController', function($scope, $http) {
-    $http.get('http://localhost:8080/rest/server/viewSoldVehicle').
-    then(function(response) {
-        $scope.data = response.data;
+    app.controller('viewSoldVehicleController', function($scope, $http) {
+        $http.get('http://localhost:8080/rest/server/viewSoldVehicle').
+        then(function(response) {
+            $scope.data = response.data;
+        });
     });
-});
-app.controller('viewSoldSparePartController', function($scope, $http) {
-    $http.get('http://localhost:8080/rest/server/viewSoldSparePart').
-    then(function(response) {
-        $scope.data = response.data;
+    app.controller('viewSoldSparePartController', function($scope, $http) {
+        $http.get('http://localhost:8080/rest/server/viewSoldSparePart').
+        then(function(response) {
+            $scope.data = response.data;
+        });
     });
-});
-app.controller('viewVehicleModelRequestsController', function($scope, $http) {
-    $http.get('http://localhost:8080/rest/server/viewVehicleModelRequests').
-    then(function(response) {
-        $scope.data = response.data;
+    app.controller('viewVehicleModelRequestsController', function($scope, $http) {
+        $http.get('http://localhost:8080/rest/server/viewVehicleModelRequests').
+        then(function(response) {
+            $scope.data = response.data;
+        });
     });
-});
-app.controller('viewSparepartRequestsController', function($scope, $http) {
-    $http.get('http://localhost:8080/rest/server/viewSparepartRequests').
-    then(function(response) {
-        $scope.data = response.data;
+    app.controller('viewSparepartRequestsController', function($scope, $http) {
+        $http.get('http://localhost:8080/rest/server/viewSparepartRequests').
+        then(function(response) {
+            $scope.data = response.data;
+        });
     });
-});
 
 
 /*
-*
-* Controllers which are posting the data to the server*/
+ *
+ * Controllers which are posting the data to the server*/
 app.controller('postVehicleModel', function ($scope, $http) {
     $scope.modelId = null;
     $scope.modelName = null;

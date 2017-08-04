@@ -1,18 +1,17 @@
-<div class="row">
-    <div class="panel panel-danger">
-        <div class="panel-heading" id="anch1" style="text-align: center">
-            Add Vehicle Model
+<div class="row"  >
+    <div class="panel " style="border-style: none;">
+        <div class="panel-heading" id="mypanelheading" >
+            <h3 class="mypanelheading"> Add Vehicle Model</h3>
         </div>
-<div class="container">
-
-    <form class="well form-horizontal" action=" " method="post"  id="contact_form" style="background-color:#1F2739;">
-        <fieldset>
+    </div>
+    <form class="well form-horizontal" action=" " method="post"  id="contact_form"  enctype="multipart/form-data">
+        <fieldset >
              <div class="form-group">
-                <label class="col-md-4 control-label">First Name</label>
+                <label class="col-md-4 control-label" style="color: #011635;">Model Name</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input  name="first_name" placeholder="First Name" class="form-control"  type="text">
+                        <span class="input-group-addon"><i class="fa fa-car" aria-hidden="true"></i></span>
+                        <input  name="modelname" placeholder="Model Name" class="form-control"  type="text">
                     </div>
                 </div>
             </div>
@@ -20,22 +19,22 @@
             <!-- Text input-->
 
             <div class="form-group">
-                <label class="col-md-4 control-label" >Last Name</label>
+                <label class="col-md-4 control-label mycolor" style="color: #011635;">Body Type</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input name="last_name" placeholder="Last Name" class="form-control"  type="text">
+                        <span class="input-group-addon"><i class="fa fa-truck"></i></span>
+                        <input name="bodytype" placeholder="Body Type" class="form-control"  type="text">
                     </div>
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label">E-Mail</label>
+                <label class="col-md-4 control-label" style="color: #011635;">Color</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input name="email" placeholder="E-Mail Address" class="form-control"  type="text">
+                        <span class="input-group-addon"><i class="fa fa-paint-brush" aria-hidden="true"></i></span>
+                        <input name="color" placeholder="Color" class="form-control"  type="text">
                     </div>
                 </div>
             </div>
@@ -44,23 +43,11 @@
             <!-- Text input-->
 
             <div class="form-group">
-                <label class="col-md-4 control-label">Phone #</label>
+                <label class="col-md-4 control-label" style="color: #011635;">Transmission</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                        <input name="phone" placeholder="(845)555-1212" class="form-control" type="text">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Text input-->
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Address</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="address" placeholder="Address" class="form-control" type="text">
+                        <span class="input-group-addon"><i class="fa fa-car"></i></span>
+                        <input name="transmission" placeholder="Transmission" class="form-control" type="text">
                     </div>
                 </div>
             </div>
@@ -68,76 +55,11 @@
             <!-- Text input-->
 
             <div class="form-group">
-                <label class="col-md-4 control-label">City</label>
+                <label class="col-md-4 control-label" style="color: #011635;">Image</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="city" placeholder="city" class="form-control"  type="text">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Select Basic -->
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">State</label>
-                <div class="col-md-4 selectContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select name="state" class="form-control selectpicker" >
-                            <option value=" " >Please select your state</option>
-                            <option>Alabama</option>
-                            <option>Alaska</option>
-                            <option >Arizona</option>
-                            <option >Arkansas</option>
-                            <option >California</option>
-                            <option >Colorado</option>
-                            <option >Connecticut</option>
-                            <option >Delaware</option>
-                            <option >District of Columbia</option>
-                            <option> Florida</option>
-                            <option >Georgia</option>
-                            <option >Hawaii</option>
-                            <option >daho</option>
-                            <option >Illinois</option>
-                            <option >Indiana</option>
-                            <option >Iowa</option>
-                            <option> Kansas</option>
-                            <option >Kentucky</option>
-                            <option >Louisiana</option>
-                            <option>Maine</option>
-                            <option >Maryland</option>
-                            <option> Mass</option>
-                            <option >Michigan</option>
-                            <option >Minnesota</option>
-                            <option>Mississippi</option>
-                            <option>Missouri</option>
-                            <option>Montana</option>
-                            <option>Nebraska</option>
-                            <option>Nevada</option>
-                            <option>New Hampshire</option>
-                            <option>New Jersey</option>
-                            <option>New Mexico</option>
-                            <option>New York</option>
-                            <option>North Carolina</option>
-                            <option>North Dakota</option>
-                            <option>Ohio</option>
-                            <option>Oklahoma</option>
-                            <option>Oregon</option>
-                            <option>Pennsylvania</option>
-                            <option>Rhode Island</option>
-                            <option>South Carolina</option>
-                            <option>South Dakota</option>
-                            <option>Tennessee</option>
-                            <option>Texas</option>
-                            <option> Uttah</option>
-                            <option>Vermont</option>
-                            <option>Virginia</option>
-                            <option >Washington</option>
-                            <option >West Virginia</option>
-                            <option>Wisconsin</option>
-                            <option >Wyoming</option>
-                        </select>
+                        <span class="input-group-addon"><i class="fa fa-file-picture-o"></i></span>
+                        <input name="image" value="Upload Image" class="form-control" type="file">
                     </div>
                 </div>
             </div>
@@ -145,68 +67,54 @@
             <!-- Text input-->
 
             <div class="form-group">
-                <label class="col-md-4 control-label">Zip Code</label>
+                <label class="col-md-4 control-label" style="color: #011635;">Units</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="zip" placeholder="Zip Code" class="form-control"  type="text">
+                        <span class="input-group-addon"><i class="fa fa-list-ol" aria-hidden="true"></i></span>
+                        <input name="units" placeholder="Units" class="form-control"  type="number">
                     </div>
                 </div>
             </div>
 
-            <!-- Text input-->
+
+
             <div class="form-group">
-                <label class="col-md-4 control-label">Website or domain name</label>
+                <label class="col-md-4 control-label" style="color: #011635;">Description</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
-                        <input name="website" placeholder="Website or domain name" class="form-control" type="text">
+                        <span class="input-group-addon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+                        <input name="description" placeholder="Description" class="form-control"  type="text">
                     </div>
                 </div>
             </div>
-
-            <!-- radio checks -->
             <div class="form-group">
-                <label class="col-md-4 control-label">Do you have hosting?</label>
-                <div class="col-md-4">
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="hosting" value="yes" /> Yes
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="hosting" value="no" /> No
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Text area -->
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Project Description</label>
+                <label class="col-md-4 control-label" style="color: #011635;">Release Date</label>
                 <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                        <textarea class="form-control" name="comment" placeholder="Project Description"></textarea>
-                    </div>
+                <div class='input-group date' id='datetimepicker1'>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                    <input type='date' class="form-control" name="date" />
+
+                </div>
+
                 </div>
             </div>
+        </fieldset>
 
-            <!-- Success message -->
-            <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div>
 
-            <!-- Button -->
-            <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="col-md-4">
-                    <button type="submit" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
+                    <!-- Button -->
+            <div class="form-group" >
+                <label class="col-md-4 control-label" ></label>
+                <div class="col-md-4" style="padding-left: 13% ">
+                    <button style="background: #011635;color: white" type="submit" class="btn" ><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add </button>
                 </div>
             </div>
 
         </fieldset>
+
     </form>
-</div><!-- /.container -->
-        </div>
+
+<!-- /.container -->
+
     </div>

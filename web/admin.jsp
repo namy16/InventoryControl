@@ -11,66 +11,89 @@
     <title>$Title$</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <script src="https://use.fontawesome.com/9d0c2e3dbb.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.js"></script>
-    <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel = "stylesheet" type = "text/css" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
     <link rel = "stylesheet" type = "text/css" href = "css/myCss.css" />
     <link rel = "stylesheet" type = "text/css" href = "css/table.css" />
     <script src="js/myJs.js"></script>
     <script src="js/controllers.js"></script>
-
   </head>
   <body ng-app="myApp" ng-controller="myController">
   <div id="wrapper">
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background: #011635;">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
           <div  class="navbar-brand">
-            <a id="menu-toggle" href="#" class="glyphicon glyphicon-align-justify btn-menu toggle">
+            <a id="menu-toggle" href="#" >
               <i class="fa fa-bars"></i>
             </a>
-            <a href="#">Admin</a>
+            <a href="#">Inventory</a>
           </div>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
+          <ul class="nav navbar-nav navbar-right">
+            <li ><a href="#" style="color:white "><span class="glyphicon glyphicon-home" ></span> <b>Home</b></a></li>
+            <li ><a href="#about" style="color:white "><i class="fa fa-sign-out" aria-hidden="true" ></i><b> Logout</b></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
     <!-- Sidebar -->
-    <div id="sidebar-wrapper" >
+    <div id="sidebar-wrapper">
       <nav id="spy">
         <ul class="sidebar-nav nav">
           <li class="sidebar-brand">
-            <a href="#home"><span class="fa fa-home solo">Admin</span></a>
+            <a href="#home" ><span class="fa fa-user-o">&nbsp;Admin</span></a>
           </li>
-          <li>
-            <a href="#anch1" ng-click="addVehicleModel()">
-              <span class="fa fa-anchor solo">Add Vehicle Model</span>
+          <li >
+            <a href="#anch1" ng-click="addVehicleModel()" >
+              <span class="fa fa-plus-square-o"><span style="font-family: Arial; font-size: 110%" >Add Vehicle Model</span></span>
             </a>
           </li>
           <li>
             <a href="#anch2" ng-click="viewVehicleModels()">
-              <span class="fa fa-anchor solo">View Vehicle Models</span>
+              <span class="fa fa-server" ><span style="font-family: Arial; font-size: 110%" >View Vehicle Model</span></span>
             </a>
           </li>
           <li>
-            <a href="#anch3">
-              <span class="fa fa-anchor solo">Processed Request</span>
+            <a href="#anch3" ng-click="addSparePart()">
+              <span class="fa fa-plus-square-o" ><span style="font-family: Arial; font-size: 110%" >Add Spare Part</span></span>
             </a>
           </li>
           <li>
-            <a href="#anch4">
-              <span class="fa fa-anchor solo">Make Request</span>
+            <a href="#anch5" ng-click="viewSpareParts()">
+              <span class="fa fa-server" ><span style="font-family: Arial; font-size: 110%" >View Spare Parts</span></span>
+            </a>
+          </li>
+          <li>
+            <a href="#anch6" ng-click="soldVehicleModels()">
+              <span class="fa fa-check" ><span style="font-family: Arial; font-size: 110%" >Sold Vehicle Models</span></span>
+            </a>
+          </li>
+          <li>
+            <a href="#anch7" ng-click="soldSpareParts()">
+              <span class="fa fa-check" ><span style="font-family: Arial; font-size: 110%" >Sold Spare Parts</span></span>
+            </a>
+          </li>
+          <li>
+            <a href="#anch8" ng-click="requestVehicleModel()">
+              <span class="fa fa-plus-square-o" ><span style="font-family: Arial; font-size: 110%" >Request Vehicle Model</span></span>
+            </a>
+          </li>
+          <li>
+            <a href="#anch9" ng-click="requestSparePart()">
+              <span class="fa fa-plus-square-o" ><span style="font-family: Arial; font-size: 110%" >Request Spare Part</span></span>
+            </a>
+          </li>
+          <li>
+            <a href="#anch10" ng-click="viewVehicleModelRequest()">
+              <span class="fa fa-server" ><span style="font-family: Arial; font-size: 110%" >View Requested Models</span></span>
+            </a>
+          </li>
+          <li>
+            <a href="#anch11" ng-click="viewSparePartRequest()">
+              <span class="fa fa-server" ><span style="font-family: Arial; font-size: 110%" >View Requested SpareParts</span></span>
             </a>
           </li>
         </ul>
@@ -78,9 +101,9 @@
     </div>
     <!-- Page content -->
     <div id="page-content-wrapper" ng-show="addvehiclemodel">
-      <div class="page-content">
-        <div class="container-fluid">
-                <div class="panel-body" ng-include ="addUrl()">
+      <div class="page-content" >
+        <div class="container-fluid" >
+                <div  ng-include ="addUrl()" >
 
 
               </div>
