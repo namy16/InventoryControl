@@ -106,12 +106,26 @@ app.controller('myController', function($scope) {
         then(function(response) {
             $scope.data = response.data;
         });
+
+        $scope.update = function(){
+            $http.get('http://localhost:8080/rest/server/viewVehicleModelRequests')
+                .then(function(response) {
+                    $scope.data = response.data;
+                });
+        }
+
     });
     app.controller('viewSparepartRequestsController', function($scope, $http) {
         $http.get('http://localhost:8080/rest/server/viewSparepartRequests').
         then(function(response) {
             $scope.data = response.data;
         });
+        $scope.update = function(){
+            $http.get('http://localhost:8080/rest/server/viewSparepartRequests')
+                .then(function(response) {
+                $scope.data = response.data;
+            });
+        }
     });
 
 
@@ -197,17 +211,22 @@ app.controller('postSparePart', function ($scope, $http) {
 });
 
 app.controller('postVehicleModelRequest', function ($scope, $http) {
-    $scope.requestId = 11;
-    $scope.modelId = "superman";
-    $scope.isProcessed = true;
-    $scope.units = 10;
-    $scope.orderDate = "1992/11/28";
-    //console.log("inpost");
-    $scope.postdata = function () {
+    $scope.requestId = null;
+    $scope.modelId = null;
+    $scope.isProcessed = null;
+    $scope.units = null;
+    $scope.orderDate = null;
+    console.log("inpost");
+    $scope.postData = function (modelId, isProcessed, units, orderDate) {
         var data = {
-
+            requestId : 0,
+            modelId : modelId,
+            isProcessed : isProcessed,
+            units : units,
+            orderDate : orderDate
         };
-        $http.post('http://localhost:8080/rest/server/setVehicleRequest', data).then(function (response) {
+        console.log("inpostsend");
+        $http.post('http://localhost:8080/rest/server/getVehicleRequest', data).then(function (response) {
             if (response.data)
                 $scope.msg = "Post Data Submitted Successfully!";
         }, function (response) {
@@ -219,17 +238,21 @@ app.controller('postVehicleModelRequest', function ($scope, $http) {
     };
 });
 app.controller('postSparePartRequest', function ($scope, $http) {
-    $scope.requestId = 11;
-    $scope.modelId = "superman";
-    $scope.isProcessed = true;
-    $scope.units = 10;
-    $scope.orderDate = "1992/11/28";
+    $scope.requestId = null;
+    $scope.sparePartId = null;
+    $scope.isProcessed = null;
+    $scope.units = null;
+    $scope.orderDate = null;
     //console.log("inpost");
-    $scope.postdata = function () {
+    $scope.postData = function (sparePartId, isProcessed, units, orderDate) {
         var data = {
-
+            requestId : 0,
+            sparePartId : sparePartId,
+            isProcessed : isProcessed,
+            units : units,
+            orderDate : orderDate
         };
-        $http.post('http://localhost:8080/rest/server/setVehicleRequest', data).then(function (response) {
+        $http.post('http://localhost:8080/rest/server/getSparePartRequest', data).then(function (response) {
             if (response.data)
                 $scope.msg = "Post Data Submitted Successfully!";
         }, function (response) {
@@ -240,3 +263,60 @@ app.controller('postSparePartRequest', function ($scope, $http) {
         });
     };
 });
+app.controller('updateVehicleModelRequest', function ($scope, $http) {
+    $scope.requestId = null;
+    $scope.modelId = null;
+    $scope.isProcessed = null;
+    $scope.units = null;
+    $scope.orderDate = null;
+    console.log("inposter");
+    $scope.updateData = function (requestId, modelId, isProcessed, units, orderDate) {
+        var data = {
+            requestId : requestId,
+            modelId : modelId,
+            isProcessed : isProcessed,
+            units : units,
+            orderDate : orderDate
+        };
+        console.log("inpostsend");
+        $http.post('http://localhost:8080/rest/server/updateVehicleRequest', data).then(function (response) {
+            if (response.data)
+                $scope.msg = "Post Data Submitted Successfully!";
+        }, function (response) {
+            $scope.msg = "Service not Exists";
+            $scope.statusval = response.status;
+            $scope.statustext = response.statusText;
+            $scope.headers = response.headers();
+        });
+    };
+});
+
+
+app.controller('updateSparePartRequest', function ($scope, $http) {
+    $scope.requestId = null;
+    $scope.modelId = null;
+    $scope.isProcessed = null;
+    $scope.units = null;
+    $scope.orderDate = null;
+    console.log("inposter");
+    $scope.updateData = function (requestId, modelId, isProcessed, units, orderDate) {
+        var data = {
+            requestId : requestId,
+            modelId : modelId,
+            isProcessed : isProcessed,
+            units : units,
+            orderDate : orderDate
+        };
+        console.log("inpostsend");
+        $http.post('http://localhost:8080/rest/server/updateSparePartRequest', data).then(function (response) {
+            if (response.data)
+                $scope.msg = "Post Data Submitted Successfully!";
+        }, function (response) {
+            $scope.msg = "Service not Exists";
+            $scope.statusval = response.status;
+            $scope.statustext = response.statusText;
+            $scope.headers = response.headers();
+        });
+    };
+});
+

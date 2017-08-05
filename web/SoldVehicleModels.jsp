@@ -4,25 +4,23 @@
             <h3 class="mypanelheading"> Sold Vehicle Models</h3>
         </div>
     </div>
-    <table class="container" style="width: 100%">
+    <table class="container" style="width: 100%" ng-controller="viewSoldVehicleController">
         <thead>
         <tr>
             <th><h1>Id</h1></th>
             <th><h1>Vehicle Model Id</h1></th>
             <th><h1>Model Color</h1></th>
-            <th><h1>Image</h1></th>
             <th><h1>Sold On</h1></th>
             <th><h1>Customer Email Id</h1></th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>1212</td>
-            <td>asdasd</td>
-            <td>adasd</td>
-            <td>adasd</td>
-            <td>adasd</td>
-            <td>adasd</td>
+        <tr ng-repeat="x in data">
+            <td>{{x.vehicleId}}</td>
+            <td>{{x.modelId}}</td>
+            <td>{{x.color}}</td>
+            <td>{{x.soldOn}}</td>
+            <td>{{x.emailId}}</td>
         </tr>
 
         </tbody>

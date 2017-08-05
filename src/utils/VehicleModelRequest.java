@@ -1,9 +1,6 @@
 package utils;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -12,8 +9,8 @@ import java.util.Date;
 @javax.persistence.Entity
 @Table(name="vehiclemodelrequests")
 public class VehicleModelRequest {
-    @Id@GeneratedValue
-    @Column
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     int requestId;
 
     @Column(unique = true)
@@ -76,5 +73,16 @@ public class VehicleModelRequest {
 
     public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
+    }
+
+    @Override
+    public String toString() {
+        return "VehicleModelRequest{" +
+                "requestId=" + requestId +
+                ", modelId=" + modelId +
+                ", isProcessed=" + isProcessed +
+                ", units=" + units +
+                ", orderDate=" + orderDate +
+                '}';
     }
 }

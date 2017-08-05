@@ -8,8 +8,8 @@ import java.util.Date;
 @javax.persistence.Entity
 @Table(name="soldspareparts")
 public class SoldSparePart  {
-    @Id@GeneratedValue
-    @Column
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     int id;
 
     @Column(unique = true)

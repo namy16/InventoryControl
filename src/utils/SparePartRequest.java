@@ -1,9 +1,6 @@
 package utils;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -13,7 +10,7 @@ import java.util.Date;
 @Table(name="sparepartrequests")
 public class SparePartRequest {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column
     int requestId;
 
@@ -77,5 +74,16 @@ public class SparePartRequest {
 
     public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
+    }
+
+    @Override
+    public String toString() {
+        return "SparePartRequest{" +
+                "requestId=" + requestId +
+                ", sparePartId=" + sparePartId +
+                ", isProcessed=" + isProcessed +
+                ", units=" + units +
+                ", orderDate=" + orderDate +
+                '}';
     }
 }

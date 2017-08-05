@@ -1,10 +1,17 @@
 package rest;
 
+import com.sun.jersey.multipart.FormDataParam;
+import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import dao.*;
 import utils.*;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.awt.*;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -85,8 +92,10 @@ public class RESTJSONServer {
 	@POST
 	@Path("/getVehicleRequest")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public VehicleModelRequest getVehiclerequest(VehicleModelRequest vm){
+	public VehicleModelRequest getVehicleRequest(VehicleModelRequest vm){
 		String result = "Request : "+vm;
+		VehicleModelRequestDaoImpl vdm = new VehicleModelRequestDaoImpl();
+		vdm.addVehicleModelRequest(vm.getModelId(), vm.isProcessed(), vm.getUnits(), vm.getOrderDate());
 		System.out.print(result);
 		return vm;
 	}
@@ -96,8 +105,32 @@ public class RESTJSONServer {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public SparePartRequest getSparePartRequest(SparePartRequest sp){
 		String result = "Request : "+sp;
+		SparePartRequestDaoImpl spdim = new SparePartRequestDaoImpl();
+		spdim.addSparePartRequest(sp.getSparePartId(), sp.isProcessed(), sp.getUnits(), sp.getOrderDate());
 		System.out.print(result);
 		return sp;
 	}
 
+
+	@POST
+	@Path("/updateVehicleRequest")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public VehicleModelRequest updateVehicleRequest(VehicleModelRequest vm){
+		String result = "Request : "+vm;
+		VehicleModelRequestDaoImpl vdm = new VehicleModelRequestDaoImpl();
+		vdm.updateVehicleModelRequest(vm);
+		System.out.print(result);
+		return vm;
+	}
+
+	@POST
+	@Path("/updateSparePartRequest")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public SparePartRequest updateSparepartRequest(SparePartRequest sp){
+		String result = "Request : "+sp;
+		SparePartRequestDaoImpl vdm = new SparePartRequestDaoImpl();
+		vdm.updateSparePartRequest(sp);
+		System.out.print(result);
+		return sp;
+	}
 }

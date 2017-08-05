@@ -8,7 +8,8 @@ import java.util.Date;
 @javax.persistence.Entity
 @Table(name="soldvehiclemodels")
 public class SoldVehicleModel  {
-    @Id@GeneratedValue
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column
     int vehicleId;
 

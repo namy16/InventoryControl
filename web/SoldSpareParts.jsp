@@ -4,7 +4,7 @@
             <h3 class="mypanelheading"> Sold Vehicle Models</h3>
         </div>
     </div>
-    <table class="container" style="width: 100%">
+    <table class="container" style="width: 100%" ng-controller="viewSoldSparePartController">
         <thead>
         <tr>
             <th><h1>Id</h1></th>
@@ -14,11 +14,11 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>1212</td>
-            <td>adasd</td>
-            <td>adasd</td>
-            <td>adasd</td>
+        <tr ng-repeat="x in data">
+            <td>{{x.id}}</td>
+            <td>{{x.sparePartId}}</td>
+            <td>{{x.soldOn}}</td>
+            <td>{{x.emailId}}</td>
         </tr>
 
         </tbody>

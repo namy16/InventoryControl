@@ -11,7 +11,7 @@ import java.util.Set;
 @Table(name="vehiclemodels")
  public class VehicleModel  {
 
-     @Id
+    @Id
     @Column
     int modelId;
 
