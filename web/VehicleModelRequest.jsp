@@ -4,7 +4,7 @@
             <h3 class="mypanelheading"> Add Vehicle Model Request</h3>
         </div>
     </div>
-    <form class="well form-horizontal" action=" " method="post"  id="contact_form"  enctype="multipart/form-data">
+    <form class="well form-horizontal" action=" " method="post"  id="contact_form"  enctype="multipart/form-data" ng-controller = "">
         <fieldset >
             <div class="form-group">
                 <label class="col-md-4 control-label" style="color: #011635;">Vehicle Model Id</label>

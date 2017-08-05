@@ -14,10 +14,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <link rel = "stylesheet" type = "text/css" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/adonespitogo/angular-base64-upload/master/src/angular-base64-upload.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
     <link rel = "stylesheet" type = "text/css" href = "css/myCss.css" />
     <link rel = "stylesheet" type = "text/css" href = "css/table.css" />
     <script src="js/myJs.js"></script>
     <script src="js/controllers.js"></script>
+
   </head>
   <body ng-app="myApp" ng-controller="myController">
   <div id="wrapper">

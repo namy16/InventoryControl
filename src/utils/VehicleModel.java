@@ -125,4 +125,19 @@ import java.util.Set;
     public void setReleaseDate(Date releaseDate) {
         this.releaseDate = releaseDate;
     }
+
+    @Override
+    public String toString() {
+        return "VehicleModel{" +
+                "modelId=" + modelId +
+                ", modelName='" + modelName + '\'' +
+                ", transmission='" + transmission + '\'' +
+                ", color='" + color + '\'' +
+                ", image='" + image + '\'' +
+                ", bodyType='" + bodyType + '\'' +
+                ", units=" + units +
+                ", description='" + description + '\'' +
+                ", releaseDate=" + releaseDate +
+                '}';
+    }
 }

@@ -1,7 +1,7 @@
 /**
  * Created by parashan on 8/3/2017.
  */
-var app = angular.module('myApp', []);
+var app = angular.module('myApp', ['naif.base64']);
 app.controller('myController', function($scope) {
     $scope.addvehiclemodel = false;//initially will be made false
     $scope.addVehicleModel = function() { //whenever myFunc() is called, display of above div is toggled
@@ -128,19 +128,20 @@ app.controller('postVehicleModel', function ($scope, $http) {
     $scope.units = null;
     $scope.description = null;
     $scope.releaseDate = null;
-    //console.log("inpost");
-    $scope.postdata = function () {
+    console.log("inpostctrl");
+    $scope.postData = function (modelName, bodyType, transmission, color, image, units, description, releaseDate) {
         var data = {
-            modelId : 10,
-            modelName : "supra",
-            transmission : "auto",
-            color : "white",
-            image : "blue",
-            bodyType : "coupe",
-            units : 10,
-            description : "quick_left",
-            releaseDate : "1992-11-11"
+            modelId : 0,
+            modelName : modelName,
+            transmission : transmission,
+            color : color,
+            image : image,
+            bodyType : bodyType,
+            units : units,
+            description : description,
+            releaseDate : releaseDate
         };
+        console.log(image);
         $http.post('http://localhost:8080/rest/server/getVehicle', data).then(function (response) {
             if (response.data)
                 $scope.msg = "Post Data Submitted Successfully!";
@@ -152,8 +153,21 @@ app.controller('postVehicleModel', function ($scope, $http) {
         });
     };
 });
+app.controller('ctrl', function($scope, $http, $window, $rootScope){
 
-app.controller('postVehicleModel', function ($scope, $http) {
+    $scope.onChange = function (e, fileList) {
+        alert('this is on-change handler!');
+    };
+
+    $scope.onLoad = function (e, reader, file, fileList, fileOjects, fileObj) {
+        alert('this is handler for file reader onload event!');
+    };
+
+    var uploadedCount = 0;
+
+    $scope.files = [];
+});
+app.controller('postSparePart', function ($scope, $http) {
     $scope.sparePartId= null;
     $scope.vehicleModelId = null;
     $scope.sparePartName = null;

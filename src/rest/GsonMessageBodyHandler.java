@@ -27,7 +27,7 @@ public final class GsonMessageBodyHandler implements MessageBodyWriter<Object>,
 
   private Gson getGson() {
     if (gson == null) {
-      final GsonBuilder gsonBuilder = new GsonBuilder();
+      final GsonBuilder gsonBuilder = new GsonBuilder().setDateFormat("dd-MM-yyyy");
       gson = gsonBuilder.create();
     }
     return gson;

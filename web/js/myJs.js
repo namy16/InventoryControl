@@ -9,6 +9,6 @@ $(document).ready(function() {
         $("#wrapper").toggleClass("active");
         //alert(1);
     });
-    $('#datetimepicker1').datetimepicker();
+    //$('#datetimepicker1').datetimepicker();
 
 });
