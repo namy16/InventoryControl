@@ -6,16 +6,17 @@
     </div>
     <form class="well form-horizontal" action=" " method="post"  id="contact_form"  enctype="multipart/form-data" ng-controller="postSparePart">
         <fieldset >
-            <div class="form-group">
-                <label class="col-md-4 control-label" style="color: #011635;">Vehicle Model Id</label>
-                <div class="col-md-4 inputGroupContainer">
+            <div class="form-group" ng-controller="viewVehicleController">
+                <label class="col-md-4 control-label">Vehicle Model</label>
+                <div class="col-md-4 selectContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-car" aria-hidden="true"></i></span>
-                        <input  name="vmid" placeholder="Vehicle Model Id" class="form-control"  type="number" ng-model="vehicleModelId">
+                        <select name="vmid" class="form-control selectpicker" ng-model="vehicleModelId" ng-options="something as x.modelId+'----'+x.modelName for x in data">
+                            <option value="">Select Model</option>
+                        </select>
                     </div>
                 </div>
             </div>
-
             <!-- Text input-->
 
             <div class="form-group">
@@ -24,6 +25,16 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-cog" aria-hidden="true"></i></span>
                         <input name="spname" placeholder="Spare Part Name" class="form-control"  type="text" ng-model="sparePartName">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label mycolor" style="color: #011635;">Price</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-inr" aria-hidden="true"></i></span>
+                        <input name="spname" placeholder="Price" class="form-control"  type="number" ng-model="price">
                     </div>
                 </div>
             </div>
@@ -84,7 +95,7 @@
             <div class="form-group" >
                 <label class="col-md-4 control-label" ></label>
                 <div class="col-md-4" style="padding-left: 13% ">
-                    <button style="background: #011635;color: white" type="submit" class="btn" ng-click="postsData(vehicleModelId, sparePartName, image, units, orderedOn)"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add </button>
+                    <button style="background: #011635;color: white" type="submit" class="btn" ng-click="postsData(vehicleModelId.modelId, sparePartName , price, image, units, orderedOn)"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add </button>
                 </div>
             </div>
 

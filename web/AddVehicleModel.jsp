@@ -16,6 +16,21 @@
                 </div>
             </div>
 
+
+            <!-- Text input-->
+
+            <div class="form-group">
+                <label class="col-md-4 control-label mycolor" style="color: #011635;">Price</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-inr" aria-hidden="true"></i></span>
+                        <input name="price" placeholder="Price" class="form-control"  type="number" ng-model="price">
+                    </div>
+                </div>
+            </div>
+
+
+
             <!-- Text input-->
 
             <div class="form-group">
@@ -124,7 +139,7 @@
             <div class="form-group" >
                 <label class="col-md-4 control-label" ></label>
                 <div class="col-md-4" style="padding-left: 13% ">
-                    <button style="background: #011635;color: white" type="submit" class="btn" ng-click="postData(modelName, bodyType, transmission, color, image, units, description, releaseDate)"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add </button>
+                    <button style="background: #011635;color: white" type="submit" class="btn" ng-click="postData(modelName,price, bodyType, transmission, color, image, units, description, releaseDate)"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add </button>
                 </div>
             </div>
 

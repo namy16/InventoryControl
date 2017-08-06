@@ -19,7 +19,7 @@ import java.util.List;
 public class SparePartDaoImpl {
     static SessionFactory factory;
 
-    public int addSparePart(int sparePartId, int vehicleModelId, String sparePartName, String image, int units, Date orderedOn){
+    public int addSparePart(int sparePartId, int vehicleModelId,int price, String sparePartName, String image, int units, Date orderedOn){
 
         Configuration configuration = new Configuration();
         configuration.configure();
@@ -28,7 +28,7 @@ public class SparePartDaoImpl {
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            SparePart vm = new SparePart(sparePartId,vehicleModelId,sparePartName,image,units,orderedOn);
+            SparePart vm = new SparePart(sparePartId,vehicleModelId,sparePartName,price,image,units,orderedOn);
             session.save(vm);
             tx.commit();
         }catch (HibernateException e) {

@@ -18,7 +18,7 @@ import java.util.List;
 public class VehicleModelDaoImpl {
     static SessionFactory factory;
 
-    public int addVehicleModel(int modelId, String modelName,String transmission,String color,String image,String bodyType,int units,String description,Date releaseDate){
+    public int addVehicleModel(int modelId, String modelName,int price,String transmission,String color,String image,String bodyType,int units,String description,Date releaseDate){
 
         Configuration configuration = new Configuration();
         configuration.configure();
@@ -27,7 +27,7 @@ public class VehicleModelDaoImpl {
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            VehicleModel vm = new VehicleModel(modelId,modelName,transmission, color,image, bodyType, units,description,releaseDate);
+            VehicleModel vm = new VehicleModel(modelId,modelName,price,transmission,color,image, bodyType, units,description,releaseDate);
             session.save(vm);
             tx.commit();
         }catch (HibernateException e) {
