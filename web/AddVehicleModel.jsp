@@ -54,16 +54,33 @@
 
             <!-- Text input-->
 
-            <div class="form-group">
+            <div class="form-group" id="showButton">
                 <label class="col-md-4 control-label" style="color: #011635;">Image</label>
-                <div class="col-md-4 inputGroupContainer">
+                <div class="col-md-4 inputGroupContainer" >
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-file-picture-o"></i></span>
-                        <input name="image" value="Upload Image" class="form-control" type="file" ng-model="image" base-sixty-four-input required onload="onLoad" maxsize="50000" accept="image/*">
+                        <input name="file" id="vfiles" value="Choose Image" class="form-control" type="file" files-input ng-model="fileArray" multiple required >
+                    </div>
+                </div>
+                <span ><button type="button" class="btn" style="background: #011635;color: white;" onclick="AjaxFileUpload()" ><i class="fa fa-upload" aria-hidden="true"></i></button></span>
+            </div>
+            <div class="form-group" id="showLoading" style="display: none">
+                <label class="col-md-4 control-label" style="color: #011635;">Image</label>
+                <div class="col-md-4 inputGroupContainer"  >
+                    <div class="input-group" style="align-content: center;padding-left: 45%">
+                        <img src="images/loaders.gif">
                     </div>
                 </div>
             </div>
+            <div class="form-group" id="showMessage" style="display: none">
+                <label class="col-md-4 control-label" style="color: #011635;"></label>
+                <div class="col-md-4 inputGroupContainer"  >
+                    <div class="input-group" style="align-content: center;padding-left: 70px">
+                        <i  style="color: #42f445;" class="fa fa-check fa-2x" aria-hidden="true">&nbsp;<b style="font-family: Arial;font-size: medium">Image Uploaded Successfully</b></i>
+                    </div>
+                </div>
 
+            </div>
             <!-- Text input-->
 
             <div class="form-group">

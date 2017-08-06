@@ -88,4 +88,16 @@ public class SparePart {
     public void setOrderedOn(Date orderedOn) {
         this.orderedOn = orderedOn;
     }
+
+    @Override
+    public String toString() {
+        return "SparePart{" +
+                "sparePartId=" + sparePartId +
+                ", vehicleModelId=" + vehicleModelId +
+                ", sparePartName='" + sparePartName + '\'' +
+                ", image='" + image + '\'' +
+                ", units=" + units +
+                ", orderedOn=" + orderedOn +
+                '}';
+    }
 }

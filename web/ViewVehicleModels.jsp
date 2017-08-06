@@ -20,8 +20,6 @@
 
                     </tr>
                     </thead>
-                    </tr>
-                    </thead>
                     <tbody>
                     <tr ng-repeat="x in data">
                         <td>{{x.modelId}}</td>

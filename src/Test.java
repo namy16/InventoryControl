@@ -1,4 +1,5 @@
 import dao.*;
+import rest.RESTJSONServer;
 import utils.VehicleModel;
 import utils.VehicleModelRequest;
 
@@ -48,5 +49,6 @@ public class Test {
         while(itr.hasNext()) {
             System.out.println(itr.next().getModelName());
         }
+
     }
 }

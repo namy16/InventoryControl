@@ -15,13 +15,15 @@
             <th><h1>Process<h1><th>
         </thead>
         <tbody>
-        <tr ng-repeat="x in data" ng-if="!x.isProcessed">
+        <tr ng-repeat="x in data">
             <td>{{x.requestId}}</td>
             <td>{{x.modelId}}</td>
             <td>{{x.isProcessed}}</td>
             <td>{{x.orderDate}}</td>
             <td>{{x.units}}</td>
-            <td><button type="button" ng-click="updateData(x.requestId, x.modelId, true, x.units, x.orderDate);update()">Process</button></td>
+            <td><button type="button" ng-click="updateData(x.requestId, x.modelId, true, x.units, x.orderDate);update()" ng-if="x.isProcessed" disabled>Done</button>
+                <button type="button" ng-click="updateData(x.requestId, x.modelId, true, x.units, x.orderDate);update()" ng-if="!x.isProcessed">Process</button>
+            </td>
         </tr>
 
         </tbody>

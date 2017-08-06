@@ -12,9 +12,10 @@ app.controller('myController', function($scope) {
     };
     $scope.viewVehicleModels = function() { //whenever myFunc() is called, display of above div is toggled
         $scope.addvehiclemodel = true;
-        $scope.addUrl=function () {
+        $scope.addUrl = function () {
             return '/ViewVehicleModels.jsp';
-        };
+        }
+    };
         $scope.addSparePart = function() {
             //whenever myFunc() is called, display of above div is toggled
             $scope.addvehiclemodel = true;
@@ -71,7 +72,10 @@ app.controller('myController', function($scope) {
                 return '/ViewSparePartRequest.jsp';
             }
         };
-    }});
+    });
+
+
+
 
 
 /*
@@ -129,10 +133,14 @@ app.controller('myController', function($scope) {
     });
 
 
+
+
 /*
- *
- * Controllers which are posting the data to the server*/
+*
+* Controllers which are posting the data to the server*/
+
 app.controller('postVehicleModel', function ($scope, $http) {
+var automodelId=Math.floor(Math.random() * 900000000) + 100000000;
     $scope.modelId = null;
     $scope.modelName = null;
     $scope.transmission = null;
@@ -142,21 +150,27 @@ app.controller('postVehicleModel', function ($scope, $http) {
     $scope.units = null;
     $scope.description = null;
     $scope.releaseDate = null;
+
     console.log("inpostctrl");
     $scope.postData = function (modelName, bodyType, transmission, color, image, units, description, releaseDate) {
+        //console.log("value" +$scope.file.files[0].name);
+    //    alert("name "+$scope.name);
+
         var data = {
-            modelId : 0,
+
+            modelId : automodelId,
             modelName : modelName,
             transmission : transmission,
             color : color,
-            image : image,
+            image : $scope.name,
             bodyType : bodyType,
             units : units,
             description : description,
             releaseDate : releaseDate
         };
-        console.log(image);
-        $http.post('http://localhost:8080/rest/server/getVehicle', data).then(function (response) {
+
+
+            $http.post('http://localhost:8080/rest/server/getVehicle', data).then(function (response) {
             if (response.data)
                 $scope.msg = "Post Data Submitted Successfully!";
         }, function (response) {
@@ -165,7 +179,20 @@ app.controller('postVehicleModel', function ($scope, $http) {
             $scope.statustext = response.statusText;
             $scope.headers = response.headers();
         });
-    };
+     };
+}).directive("filesInput", function() {
+    return {
+        require: "ngModel",
+        link: function postLink(scope,elem,attrs,ngModel) {
+            elem.on("change", function(e) {
+                var files1 = elem[0].files;
+          //      alert(files1[0].name);
+                scope.name = files1[0].name;
+
+                //ngModel.$setViewValue(files);
+            })
+        }
+    }
 });
 app.controller('ctrl', function($scope, $http, $window, $rootScope){
 
@@ -182,22 +209,26 @@ app.controller('ctrl', function($scope, $http, $window, $rootScope){
     $scope.files = [];
 });
 app.controller('postSparePart', function ($scope, $http) {
+    var autosPartId=Math.floor(Math.random() * 900000000) + 100000000;
+    console.log($scope.name);
     $scope.sparePartId= null;
     $scope.vehicleModelId = null;
     $scope.sparePartName = null;
     $scope.image = null;
     $scope.units = null;
     $scope.orderedOn = null;
-    //console.log("inpost");
-    $scope.postdata = function () {
+    console.log("inpost");
+    $scope.postsData = function ( vehicleModelId, sparePartName, image, units, orderedOn) {
+        //console.log(a);
         var data = {
-            sparePartId :"1223",
-            vehicleModelId : 12,
-            sparePartName : "thor's hammer",
-            image : "address",
-            units : 10,
-            orderedOn : "1992-11-28",
+            sparePartId :autosPartId,
+            vehicleModelId : vehicleModelId,
+            sparePartName : sparePartName,
+            image : $scope.name,
+            units : units,
+            orderedOn : orderedOn
         };
+        console.log("ID"+vehicleModelId);
         $http.post('http://localhost:8080/rest/server/getSparePart', data).then(function (response) {
             if (response.data)
                 $scope.msg = "Post Data Submitted Successfully!";
@@ -208,7 +239,20 @@ app.controller('postSparePart', function ($scope, $http) {
             $scope.headers = response.headers();
         });
     };
-});
+}).directive("sfilesInput", function() {
+    return {
+        require: "ngModel",
+        link: function postLink(scope,elem,attrs,ngModel) {
+            elem.on("change", function(e) {
+                var files1 = elem[0].files;
+                //      alert(files1[0].name);
+                scope.name = files1[0].name;
+
+                //ngModel.$setViewValue(files);
+            })
+        }
+    }
+});;
 
 app.controller('postVehicleModelRequest', function ($scope, $http) {
     $scope.requestId = null;

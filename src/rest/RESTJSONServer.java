@@ -80,7 +80,7 @@ public class RESTJSONServer {
 	}
 
 	@POST
-	@Path("/getSparepart")
+	@Path("/getSparePart")
 	@Consumes(MediaType.APPLICATION_JSON)
 	//@Produces(MediaType.APPLICATION_XML)
 	public SparePart getSparePartJSON(SparePart sp) {

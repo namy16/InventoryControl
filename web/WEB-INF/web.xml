@@ -19,8 +19,17 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>AjaxFileServlet</servlet-name>
+        <servlet-class>AjaxFileServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RESTful Jersey Eg2</servlet-name>
         <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AjaxFileServlet</servlet-name>
+        <url-pattern>/fileServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>
