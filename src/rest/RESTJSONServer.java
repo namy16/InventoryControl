@@ -119,6 +119,9 @@ public class RESTJSONServer {
 		String result = "Request : "+vm;
 		VehicleModelRequestDaoImpl vdm = new VehicleModelRequestDaoImpl();
 		vdm.updateVehicleModelRequest(vm);
+
+		VehicleModelDaoImpl vehicleModelDao = new VehicleModelDaoImpl();
+		vehicleModelDao.updateVehicleModel(vm.getModelId(), vm.getUnits());
 		System.out.print(result);
 		return vm;
 	}
@@ -128,8 +131,11 @@ public class RESTJSONServer {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public SparePartRequest updateSparepartRequest(SparePartRequest sp){
 		String result = "Request : "+sp;
-		SparePartRequestDaoImpl vdm = new SparePartRequestDaoImpl();
-		vdm.updateSparePartRequest(sp);
+		SparePartRequestDaoImpl spm = new SparePartRequestDaoImpl();
+		spm.updateSparePartRequest(sp);
+
+		SparePartDaoImpl sdi = new SparePartDaoImpl();
+		sdi.updateSparePart(sp.getSparePartId(), sp.getUnits());
 		System.out.print(result);
 		return sp;
 	}

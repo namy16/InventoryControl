@@ -39,15 +39,15 @@ public class SparePartDaoImpl {
         }
         return 1;
     }
-    public int updateSparePart(SparePart s) {
+    public int updateSparePart(int id, int units) {
         Configuration configuration = new Configuration();
         configuration.configure();
         factory = configuration.buildSessionFactory();
         Session session = factory.openSession();
-        Object o = session.load(SparePart.class, s.getSparePartId());
+        Object o = session.load(SparePart.class, id);
         SparePart s1 = (SparePart) o;
         Transaction tx = session.beginTransaction();
-        s1.setUnits(s.getUnits());
+        s1.setUnits(s1.getUnits()+units);
         tx.commit();
         session.close();
         return  1;
