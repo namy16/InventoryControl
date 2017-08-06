@@ -17,22 +17,6 @@ angular.module('myApp', ['naif.base64'])
         $scope.files = [];
     });
 
-// function AjaxFileUpload() {
-//     var file = document.getElementById("files");
-//     //var file = fileInput;
-//     var fd = new FormData();
-//     fd.append("imageFileData", file);
-//     var xhr = new XMLHttpRequest();
-//     xhr.open("GET", '/ws/fileUpload.do');
-//     xhr.onreadystatechange = function () {
-//         if (xhr.readyState == 4) {
-//             alert('success');
-//         }
-//         else if (uploadResult == 'success')
-//             alert('error');
-//     };
-//     xhr.send(fd);
-// }
 
 var xmlhttp;
 function AjaxFileUpload()
