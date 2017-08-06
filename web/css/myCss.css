@@ -1,15 +1,19 @@
 
 #mypanelheading{
     text-align: center;
-    background: #929e9e url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
-    color: #011635;
+    /*background: #929e9e url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+    color: white;*/
+    color: aliceblue;
+    background: #fff url("http://wallpapercave.com/wp/ci1BoK6.jpg");
 }
 .mypanelheading{
     font-weight: 900;
 }
 #contact_form{
-    background: #929e9e url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
-}
+    color: white;
+    background: #02000f url("http://wallpapercave.com/wp/ci1BoK6.jpg");
+    /*background: #929e9e url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+*/}
 
 #wrapper {
     padding-left: 250px;

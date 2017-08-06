@@ -13,15 +13,18 @@
             <th><h1>Ordered Date</h1></th>
             <th><h1>Units</h1></th>
             <th><h1>Process<th></th>
+        </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="x in data" ng-if="!x.isProcessed">
+        <tr ng-repeat="x in data">
             <td>{{x.requestId}}</td>
             <td>{{x.sparePartId}}</td>
             <td>{{x.isProcessed}}</td>
             <td>{{x.units}}</td>
             <td>{{x.orderDate}}</td>
-            <th><button type="button" ng-click="updateData(x.requestId, x.sparePartId, true, x.units, x.orderDate);update()">Process</button></th>
+            <td><button style="color:darkgreen" type="button" class="btn" ng-click="updateData(x.requestId, x.sparePartId, true, x.units, x.orderDate);update()" ng-if="x.isProcessed" disabled>Done</button>
+                <button style="color:orangered" class="btn" type="button" ng-click="updateData(x.requestId, x.sparePartId, true, x.units, x.orderDate);update()" ng-if="!x.isProcessed">Process</button>
+            </td>
         </tr>
         </tbody>
     </table>

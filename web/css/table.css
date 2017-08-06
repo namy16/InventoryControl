@@ -15,8 +15,8 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     line-height: 1.42em;
-    color:#011635;
-    background: #ceddde url(http://www.transparenttextures.com/patterns/asfalt-dark.png);
+    color:white;
+    background: #c8d0fa url("http://wallpapercave.com/wp/ci1BoK6.jpg");
 }
 
 h1 {
@@ -79,19 +79,17 @@ h2 a {
 
 /* Background-color of the odd rows */
 .container tr:nth-child(odd) {
-    background: #929e9e url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
-}
+    background: #7d89ad url("http://wallpapercave.com/wp/ci1BoK6.jpg");}
 
 /* Background-color of the even rows */
 .container tr:nth-child(even) {
-    background: #929e9e url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
-}
+    background: #7d89ad url("http://wallpapercave.com/wp/ci1BoK6.jpg");}
 
 .container th {
     background-color: #1F2739;
 }
 
-.container td:first-child {color:#011635; }
+.container td:first-child {color:white; }
 
 .container tr:hover {
     background-color: #464A52;

@@ -342,7 +342,7 @@ app.controller('updateVehicleModelRequest', function ($scope, $http) {
 
 app.controller('updateSparePartRequest', function ($scope, $http) {
     $scope.requestId = null;
-    $scope.modelId = null;
+    $scope.sparePartId = null;
     $scope.isProcessed = null;
     $scope.units = null;
     $scope.orderDate = null;
@@ -350,7 +350,7 @@ app.controller('updateSparePartRequest', function ($scope, $http) {
     $scope.updateData = function (requestId, modelId, isProcessed, units, orderDate) {
         var data = {
             requestId : requestId,
-            modelId : modelId,
+            sparePartId : modelId,
             isProcessed : isProcessed,
             units : units,
             orderDate : orderDate
