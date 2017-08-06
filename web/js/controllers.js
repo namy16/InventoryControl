@@ -21,8 +21,8 @@ app.controller('myController', function($scope) {
             $scope.addvehiclemodel = true;
             $scope.addUrl=function () {
                 return '/AddSparePart.jsp';
-            }
-        };
+            };
+};
         $scope.viewSpareParts = function() {
             //whenever myFunc() is called, display of above div is toggled
             $scope.addvehiclemodel = true;
@@ -143,6 +143,7 @@ app.controller('postVehicleModel', function ($scope, $http) {
 var automodelId=Math.floor(Math.random() * 900000000) + 100000000;
     $scope.modelId = null;
     $scope.modelName = null;
+    $scope.price = null;
     $scope.transmission = null;
     $scope.color = null;
     $scope.image = null;
@@ -152,14 +153,15 @@ var automodelId=Math.floor(Math.random() * 900000000) + 100000000;
     $scope.releaseDate = null;
 
     console.log("inpostctrl");
-    $scope.postData = function (modelName, bodyType, transmission, color, image, units, description, releaseDate) {
+    $scope.postData = function (modelName,price, bodyType, transmission, color, image, units, description, releaseDate) {
         //console.log("value" +$scope.file.files[0].name);
     //    alert("name "+$scope.name);
 
-        var data = {
+        var vdata = {
 
             modelId : automodelId,
             modelName : modelName,
+            price:price,
             transmission : transmission,
             color : color,
             image : $scope.name,
@@ -170,8 +172,8 @@ var automodelId=Math.floor(Math.random() * 900000000) + 100000000;
         };
 
 
-            $http.post('http://localhost:8080/rest/server/getVehicle', data).then(function (response) {
-            if (response.data)
+            $http.post('http://localhost:8080/rest/server/getVehicle', vdata).then(function (response) {
+            if (response.vdata)
                 $scope.msg = "Post Data Submitted Successfully!";
         }, function (response) {
             $scope.msg = "Service not Exists";
@@ -213,22 +215,24 @@ app.controller('postSparePart', function ($scope, $http) {
     console.log($scope.name);
     $scope.sparePartId= null;
     $scope.vehicleModelId = null;
+    $scope.price = null;
     $scope.sparePartName = null;
     $scope.image = null;
     $scope.units = null;
     $scope.orderedOn = null;
     console.log("inpost");
-    $scope.postsData = function ( vehicleModelId, sparePartName, image, units, orderedOn) {
-        //console.log(a);
+    $scope.postsData = function (vehicleModelId, sparePartName, price, image, units, orderedOn) {
+
         var data = {
             sparePartId :autosPartId,
             vehicleModelId : vehicleModelId,
             sparePartName : sparePartName,
+            price:price,
             image : $scope.name,
             units : units,
             orderedOn : orderedOn
         };
-        console.log("ID"+vehicleModelId);
+        //console.log("ID"+vehicleModelId);
         $http.post('http://localhost:8080/rest/server/getSparePart', data).then(function (response) {
             if (response.data)
                 $scope.msg = "Post Data Submitted Successfully!";

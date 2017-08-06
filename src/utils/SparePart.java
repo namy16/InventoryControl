@@ -20,6 +20,9 @@ public class SparePart {
     String sparePartName;
 
     @Column
+    int price;
+
+    @Column
     String image;
 
 
@@ -29,16 +32,26 @@ public class SparePart {
     @Column
     Date orderedOn;
 
-    public SparePart(int sparePartId, int vehicleModelId, String sparePartName, String image, int units, Date orderedOn) {
+    public SparePart(int sparePartId, int vehicleModelId, String sparePartName, int price, String image, int units, Date orderedOn) {
         this.sparePartId = sparePartId;
         this.vehicleModelId = vehicleModelId;
         this.sparePartName = sparePartName;
+        this.price = price;
         this.image = image;
         this.units = units;
         this.orderedOn = orderedOn;
     }
+
     public SparePart() {
 
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public int getSparePartId() {
@@ -95,6 +108,7 @@ public class SparePart {
                 "sparePartId=" + sparePartId +
                 ", vehicleModelId=" + vehicleModelId +
                 ", sparePartName='" + sparePartName + '\'' +
+                ", price=" + price +
                 ", image='" + image + '\'' +
                 ", units=" + units +
                 ", orderedOn=" + orderedOn +

@@ -19,6 +19,9 @@ import java.util.Set;
     String modelName;
 
     @Column
+    int price;
+
+    @Column
     String transmission;
 
     @Column
@@ -39,9 +42,10 @@ import java.util.Set;
     @Column
     Date releaseDate;
 
-    public VehicleModel(int modelId, String modelName, String transmission, String color, String image, String bodyType, int units, String description, Date releaseDate) {
+    public VehicleModel(int modelId, String modelName, int price,String transmission, String color, String image, String bodyType, int units, String description, Date releaseDate) {
         this.modelId = modelId;
         this.modelName = modelName;
+        this.price=price;
         this.transmission = transmission;
         this.color = color;
         this.image = image;
@@ -52,6 +56,14 @@ import java.util.Set;
     }
 
     public VehicleModel() {
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public int getModelId() {
@@ -131,6 +143,7 @@ import java.util.Set;
         return "VehicleModel{" +
                 "modelId=" + modelId +
                 ", modelName='" + modelName + '\'' +
+                ", price=" + price +
                 ", transmission='" + transmission + '\'' +
                 ", color='" + color + '\'' +
                 ", image='" + image + '\'' +
