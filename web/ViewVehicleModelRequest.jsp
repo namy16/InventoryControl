@@ -21,8 +21,8 @@
             <td>{{x.isProcessed}}</td>
             <td>{{x.orderDate}}</td>
             <td>{{x.units}}</td>
-            <td><button type="button" class="btn" ng-click="updateData(x.requestId, x.modelId, true, x.units, x.orderDate);update()" ng-if="x.isProcessed" disabled>Done</button>
-            <button type="button" ng-click="updateData(x.requestId, x.modelId, true, x.units, x.orderDate);update()" ng-if="!x.isProcessed">Process</button>
+            <td><button style="color:darkgreen" type="button" class="btn" ng-click="updateData(x.requestId, x.modelId, true, x.units, x.orderDate);update()" ng-if="x.isProcessed" disabled>Done</button>
+            <button style="color:orangered" class="btn" type="button" ng-click="updateData(x.requestId, x.modelId, true, x.units, x.orderDate);update()" ng-if="!x.isProcessed">Process</button>
             </td>
         </tr>
 
