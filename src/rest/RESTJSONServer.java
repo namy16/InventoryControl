@@ -94,6 +94,8 @@ public class RESTJSONServer {
 	public SparePart getSparePartJSON(SparePart sp) {
 		String result = "Track saved : " + sp;
 		System.out.println("createTrackInJSON()...."+result);
+		SparePartDaoImpl sparePartDao = new SparePartDaoImpl();
+		sparePartDao.addSparePart(sp.getSparePartId(), sp.getVehicleModelId(), sp.getPrice(), sp.getSparePartName(), sp.getImage(), sp.getUnits(), sp.getOrderedOn());
 		return sp;
 	}
 
@@ -150,4 +152,5 @@ public class RESTJSONServer {
 		System.out.print(result);
 		return sp;
 	}
+
 }

@@ -10,7 +10,11 @@
         <img class="modal-content" id="img01">
         <div id="caption"></div>
     </div>
+
     <table class="container" style="width: 100%">
+        <tr>
+            <label>Search: <input ng-model="searchText" style="color : black"></label>
+        </tr>
     <thead>
 
                     <tr>
@@ -24,11 +28,10 @@
                         <th><h1>Units</h1></th>
                         <th><h1>Description</h1></th>
                         <th><h1>Release Date</h1></th>
-
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="x in data" ng-controller="imageController">
+                    <tr ng-repeat="x in data | filter:searchText" ng-controller="imageController">
                         <td>{{x.modelId}}</td>
                         <td>{{x.modelName}}</td>
                         <td>{{x.price}}</td>

@@ -6,6 +6,9 @@
     </div>
     <div style="position: fixed;top:40%;left:53%;display: none" id="showTableLoader"><img src="images/tableloader.gif"></div>
     <table class="container" style="width: 100%" ng-controller="viewSparePartController">
+        <tr>
+            <label>Search: <input ng-model="searchText" style="color : black"></label>
+        </tr>
         <thead>
         <tr>
             <th><h1>Spare Part Id</h1></th>
@@ -17,7 +20,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="x in data">
+        <tr ng-repeat="x in data | filter:searchText">
             <td>{{x.sparePartId}}</td>
             <td>{{x.vehicleModelId}}</td>
             <td>{{x.sparePartName}}</td>
