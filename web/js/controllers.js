@@ -431,6 +431,13 @@ app.controller('updateSparePartRequest', function ($scope, $http) {
         });
     };
 });
+
+app.controller('viewVehicleControllerNotif', function($scope, $http) {
+    $http.get('http://localhost:8080/rest/server/viewVehicleModel').
+    then(function(response) {
+        $scope.data = response.data;
+    });
+});
 app.controller('viewVehicleGraph', function($scope, $http) {
     $scope.rawData = null;
     $http.get('http://localhost:8080/rest/server/viewVehicleModel').

@@ -22,8 +22,10 @@
     <link rel = "stylesheet" type = "text/css" href = "css/myCss.css" />
     <link rel = "stylesheet" type = "text/css" href = "css/table.css" />
     <link rel = "stylesheet" type = "text/css" href = "css/modal.css" />
+    <link rel = "stylesheet" type = "text/css" href = "css/notification.css" />
     <script src="js/myJs.js"></script>
     <script src="js/controllers.js"></script>
+    <script src="js/notification.js"></script>
 
   </head>
   <body ng-app="myApp" ng-controller="myController">
@@ -40,6 +42,19 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
+            <li id="notification_li">
+              <span id="notification_count">!</span>
+              <a href="#" id="notificationLink"><i class="fa fa-bell fa-lg" aria-hidden="true"></i></a>
+              <div id="notificationContainer" ng-controller="viewVehicleControllerNotif" style="color: #0E1119">
+                <div id="notificationTitle" >Notifications : Insufficient Stock</div>
+                <div id="notificationsBody" class="notifications" ng-repeat="x in data | limitTo:4 | orderBy :'units'" style="background : gainsboro">
+                  <b style="color: #cc0000">Insufficient Stock : </b> Order More Stock<br>
+                  <b style="color: #011635">Only {{x.units}} Items Left of BMW{{x.modelName}} </b>
+                </div>
+                <div id="notificationFooter"><a href="#/anch8" ng-click="requestVehicleModel()">Order Now</a></div>
+              </div>
+
+            </li>
             <li ><a href="#" style="color:white "><span class="glyphicon glyphicon-home" ></span> <b>Home</b></a></li>
             <li ><a href="#about" style="color:white "><i class="fa fa-sign-out" aria-hidden="true" ></i><b> Logout</b></a></li>
           </ul>
