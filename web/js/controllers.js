@@ -4,13 +4,16 @@
 var app = angular.module('myApp', ['naif.base64']);
 app.controller('myController', function($scope) {
     $scope.addvehiclemodel = false;//initially will be made false
-    $scope.addVehicleModel = function() { //whenever myFunc() is called, display of above div is toggled
+    $scope.addVehicleModel = function() {
+        //whenever myFunc() is called, display of above div is toggled
+        document.getElementById("statistics").style.display="none";
         $scope.addvehiclemodel = true;
         $scope.addUrl=function () {
             return '/AddVehicleModel.jsp';
         }
     };
     $scope.viewVehicleModels = function() { //whenever myFunc() is called, display of above div is toggled
+        document.getElementById("statistics").style.display="none";
         $scope.addvehiclemodel = true;
         $scope.addUrl = function () {
             return '/ViewVehicleModels.jsp';
@@ -18,6 +21,7 @@ app.controller('myController', function($scope) {
     };
     $scope.addSparePart = function() {
         //whenever myFunc() is called, display of above div is toggled
+        document.getElementById("statistics").style.display="none";
         $scope.addvehiclemodel = true;
         $scope.addUrl=function () {
             return '/AddSparePart.jsp';
@@ -25,6 +29,7 @@ app.controller('myController', function($scope) {
     };
     $scope.viewSpareParts = function() {
         //whenever myFunc() is called, display of above div is toggled
+        document.getElementById("statistics").style.display="none";
         $scope.addvehiclemodel = true;
         $scope.addUrl=function () {
             return '/ViewSpareParts.jsp';
@@ -32,6 +37,7 @@ app.controller('myController', function($scope) {
     };
     $scope.soldVehicleModels = function() {
         //whenever myFunc() is called, display of above div is toggled
+        document.getElementById("statistics").style.display="none";
         $scope.addvehiclemodel = true;
         $scope.addUrl=function () {
             return '/SoldVehicleModels.jsp';
@@ -39,6 +45,7 @@ app.controller('myController', function($scope) {
     };
     $scope.soldSpareParts = function() {
         //whenever myFunc() is called, display of above div is toggled
+        document.getElementById("statistics").style.display="none";
         $scope.addvehiclemodel = true;
         $scope.addUrl=function () {
             return '/SoldSpareParts.jsp';
@@ -46,6 +53,7 @@ app.controller('myController', function($scope) {
     };
     $scope.requestVehicleModel = function() {
         //whenever myFunc() is called, display of above div is toggled
+        document.getElementById("statistics").style.display="none";
         $scope.addvehiclemodel = true;
         $scope.addUrl=function () {
             return '/VehicleModelRequest.jsp';
@@ -53,6 +61,7 @@ app.controller('myController', function($scope) {
     };
     $scope.requestSparePart = function() {
         //whenever myFunc() is called, display of above div is toggled
+        document.getElementById("statistics").style.display="none";
         $scope.addvehiclemodel = true;
         $scope.addUrl=function () {
             return '/SparePartRequest.jsp';
@@ -60,6 +69,7 @@ app.controller('myController', function($scope) {
     };
     $scope.viewVehicleModelRequest = function() {
         //whenever myFunc() is called, display of above div is toggled
+        document.getElementById("statistics").style.display="none";
         $scope.addvehiclemodel = true;
         $scope.addUrl=function () {
             return '/ViewVehicleModelRequest.jsp';
@@ -67,11 +77,21 @@ app.controller('myController', function($scope) {
     };
     $scope.viewSparePartRequest = function() {
         //whenever myFunc() is called, display of above div is toggled
+        document.getElementById("statistics").style.display="none";
         $scope.addvehiclemodel = true;
         $scope.addUrl=function () {
             return '/ViewSparePartRequest.jsp';
         }
     };
+    $scope.addStatistics = function() {
+        //whenever myFunc() is called, display of above div is toggled
+        document.getElementById("statistics").style.display="block";
+        $scope.addvehiclemodel = false;
+        // $scope.addUrl = function () {
+        //     return '/Statistics.html';
+        // }
+    };
+
 });
 
 
@@ -435,6 +455,7 @@ app.controller('viewVehicleGraph', function($scope, $http) {
         }];
 
         $scope.layout = {
+            title : "Vehicle Stock",
             height: 400,
             width: 500
         };
@@ -457,9 +478,10 @@ app.controller('viewVehicleGraph', function($scope, $http) {
                 $scope.map[value1] = $scope.map[value1]+1;
             }
         }
-
+        $scope.width = [];
         for(var key in $scope.map){
             $scope.y.push($scope.map[key]);
+            $scope.width.push(0.1);
         }
         //console.log($scope.y);
         //console.log(JSON.stringify($scope.map));
@@ -467,10 +489,17 @@ app.controller('viewVehicleGraph', function($scope, $http) {
         var trace0 = {
             type : 'bar',
             x : Object.keys($scope.map),
-            y : $scope.y
+            y : $scope.y,
+            width : $scope.width
         }
 
+        $scope.layout1 = {
+            title : "Vehicle Stock By Body Type",
+            height: 500,
+            width: 1100
+        };
+
         var data = [trace0];
-        Plotly.plot(bodyDiv, data);
+        Plotly.plot(bodyDiv, data, $scope.layout1);
     });
 });

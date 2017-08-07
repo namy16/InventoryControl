@@ -10,7 +10,7 @@
         <img class="modal-content" id="img01">
         <div id="caption"></div>
     </div>
-
+    <div id="pdfButton" style="position: fixed;top:20.5%;left:92.5%;"><button type="button" class="btn">Generate Pdf</button></div>
     <table class="container" style="width: 100%">
         <tr>
             <label>Search: <input ng-model="searchText" style="color : black"></label>

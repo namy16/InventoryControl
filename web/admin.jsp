@@ -13,6 +13,8 @@
     <script src="https://use.fontawesome.com/9d0c2e3dbb.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
     <link rel = "stylesheet" type = "text/css" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/adonespitogo/angular-base64-upload/master/src/angular-base64-upload.js"></script>
@@ -49,7 +51,8 @@
       <nav id="spy">
         <ul class="sidebar-nav nav">
           <li class="sidebar-brand">
-            <a href="#home" ><span class="fa fa-user-o">&nbsp;Admin</span></a>
+            <a href="#home" ng-click="addStatistics()">
+              <span class="fa fa-user-o">&nbsp;Admin</span></a>
           </li>
           <li >
             <a href="#anch1" ng-click="addVehicleModel()" >
@@ -105,6 +108,7 @@
       </nav>
     </div>
     <!-- Page content -->
+
     <div id="page-content-wrapper" ng-show="addvehiclemodel">
       <div class="page-content" >
         <div class="container-fluid" >
@@ -116,6 +120,8 @@
 
           </div>
         </div>
+    <div id ="statistics" ng-include="'/Statistics.html'">
+    </div>
   </div>
   </body>
 </html>
