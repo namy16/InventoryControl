@@ -75,6 +75,8 @@ public class RESTJSONServer {
 	//@Produces(MediaType.APPLICATION_XML)
 	public VehicleModel getVehicleModeJSON(VehicleModel vm) {
 		String result = "Track saved : " + vm;
+		VehicleModelDaoImpl vmd = new VehicleModelDaoImpl();
+		vmd.addVehicleModel(vm.getModelId(), vm.getModelName(), vm.getPrice(), vm.getTransmission(), vm.getColor(), vm.getImage(), vm.getBodyType(),vm.getUnits(), vm.getDescription(), vm.getReleaseDate());
 		System.out.println("createTrackInJSON()...."+result);
 		return vm;
 	}
@@ -95,6 +97,7 @@ public class RESTJSONServer {
 	public VehicleModelRequest getVehicleRequest(VehicleModelRequest vm){
 		String result = "Request : "+vm;
 		VehicleModelRequestDaoImpl vdm = new VehicleModelRequestDaoImpl();
+        System.out.println(vm.getOrderDate());
 		vdm.addVehicleModelRequest(vm.getModelId(), vm.isProcessed(), vm.getUnits(), vm.getOrderDate());
 		System.out.print(result);
 		return vm;
