@@ -6,7 +6,7 @@
     </div>
     <div style="position: fixed;top:40%;left:53%;display: none" id="showTableLoader"><img src="images/tableloader.gif"></div>
     <div id="myModal" class="modal">
-        <span class="close">&times;</span>
+        <span class="close"><i class="fa fa-times" aria-hidden="true"></i></span>
         <img class="modal-content" id="img01">
         <div id="caption"></div>
     </div>
@@ -35,7 +35,7 @@
                         <td>{{x.bodyType}}</td>
                         <td>{{x.transmission}}</td>
                         <td>{{x.color}}</td>
-                        <td><button type="button" id="mybutton" class="btn"  ng-click="show()">View</button></td>
+                        <td><button type="button" id="mybutton" class="btn"  ng-click="show(x.image,x.modelName)">View</button></td>
                         <td>{{x.units}}</td>
                         <td>{{x.description}}</td>
                         <td>{{x.releaseDate}}</td>

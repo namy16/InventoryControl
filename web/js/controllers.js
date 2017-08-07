@@ -151,18 +151,15 @@ app.controller('myController', function($scope) {
 
 
 app.controller('imageController', function($scope) {
-    //initially will be made false
-    $scope.show = function () { //whenever myFunc() is called, display of above div is toggled
-
+    $scope.show = function (image,modelName) { //whenever myFunc() is called, display of above div is toggled
         var modal = document.getElementById('myModal');
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
         var modalImg = document.getElementById("img01");
         var captionText = document.getElementById("caption");
-            //alert(b.innerHTML);
             modal.style.display = "block";
-            modalImg.src = "/images/Koala.jpg";
-            captionText.innerHTML = "Koala";
+            modalImg.src = "/images/"+image;
+            captionText.innerHTML = modelName;
         var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on <span> (x), close the modal
