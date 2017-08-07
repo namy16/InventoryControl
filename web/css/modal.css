@@ -61,18 +61,17 @@
 
 /* The Close Button */
 .close {
-    position: absolute;
-    top: 25px;
-    right: 35px;
-    color: #f1f1f1;
+    position: fixed;
+    top: 45px;
+    right: 15px;
+    color:white;
     font-size: 40px;
-    font-weight: bold;
     transition: 0.3s;
 }
 
 .close:hover,
 .close:focus {
-    color: #bbb;
+    color:white;
     text-decoration: none;
     cursor: pointer;
 }
