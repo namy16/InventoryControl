@@ -23,14 +23,27 @@ public class VehicleModelRequest {
     int units;
 
     @Column
+    String mfEmailId;
+
+    @Column
     Date orderDate;
 
-    public VehicleModelRequest(int modelId, boolean isProcessed, int units, Date orderDate) {
+    public VehicleModelRequest(int modelId, boolean isProcessed, int units, String mfEmailId, Date orderDate) {
         this.modelId = modelId;
         this.isProcessed = isProcessed;
         this.units = units;
+        this.mfEmailId = mfEmailId;
         this.orderDate = orderDate;
     }
+
+    public String getMfEmailId() {
+        return mfEmailId;
+    }
+
+    public void setMfEmailId(String mfEmailId) {
+        this.mfEmailId = mfEmailId;
+    }
+
     public VehicleModelRequest(){
 
     }
@@ -82,6 +95,7 @@ public class VehicleModelRequest {
                 ", modelId=" + modelId +
                 ", isProcessed=" + isProcessed +
                 ", units=" + units +
+                ", mfEmailId='" + mfEmailId + '\'' +
                 ", orderDate=" + orderDate +
                 '}';
     }

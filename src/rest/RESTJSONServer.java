@@ -3,6 +3,7 @@ package rest;
 import com.sun.jersey.multipart.FormDataParam;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import dao.*;
+import sendemail.EmailSender;
 import utils.*;
 
 import javax.imageio.ImageIO;
@@ -82,8 +83,6 @@ public class RESTJSONServer {
 		VehicleModelDaoImpl vmd = new VehicleModelDaoImpl();
 		vmd.addVehicleModel(vm.getModelId(), vm.getModelName(), vm.getPrice(), vm.getTransmission(), vm.getColor(), vm.getImage(), vm.getBodyType(),vm.getUnits(), vm.getDescription(), vm.getReleaseDate());
 		System.out.println("createTrackInJSON()...."+result);
-		VehicleModelDaoImpl vmd1= new VehicleModelDaoImpl();
-		vmd1.addVehicleModel(vm.getModelId(),vm.getModelName(),vm.getPrice(),vm.getTransmission(),vm.getColor(),vm.getImage(),vm.getBodyType(),vm.getUnits(),vm.getDescription(),vm.getReleaseDate());
 		return vm;
 	}
 
@@ -108,7 +107,11 @@ public class RESTJSONServer {
 		//System.out.println(date);
 		VehicleModelRequestDaoImpl vdm = new VehicleModelRequestDaoImpl();
         System.out.println(vm.getOrderDate());
-		vdm.addVehicleModelRequest(vm.getModelId(), vm.isProcessed(), vm.getUnits(), vm.getOrderDate());
+		vdm.addVehicleModelRequest(vm.getModelId(), vm.isProcessed(), vm.getUnits(),vm.getMfEmailId(), vm.getOrderDate());
+		EmailSender em = new EmailSender();
+		String message="Hi there, Requirement of Vehicle Model:: Model ID:"+vm.getModelId()+" Stock Needed:"+vm.getUnits();
+		String subject="Vehicle Model Request";
+		em.sendEmail(vm.getMfEmailId(),message,subject);
 		System.out.print(result);
 		return vm;
 	}
@@ -119,7 +122,11 @@ public class RESTJSONServer {
 	public SparePartRequest getSparePartRequest(SparePartRequest sp){
 		String result = "Request : "+sp;
 		SparePartRequestDaoImpl spdim = new SparePartRequestDaoImpl();
-		spdim.addSparePartRequest(sp.getSparePartId(), sp.isProcessed(), sp.getUnits(), sp.getOrderDate());
+		spdim.addSparePartRequest(sp.getSparePartId(), sp.isProcessed(), sp.getUnits(),sp.getMfEmailId(), sp.getOrderDate());
+		EmailSender em = new EmailSender();
+		String message="Hi there, Requirement of Spare Part:: Spare Part ID:"+sp.getSparePartId()+" Stock Needed:"+sp.getUnits();
+		String subject="Spare Part Request";
+		em.sendEmail(sp.getMfEmailId(),message,subject);
 		System.out.print(result);
 		return sp;
 	}

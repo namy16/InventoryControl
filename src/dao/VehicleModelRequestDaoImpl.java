@@ -22,7 +22,7 @@ import java.util.List;
 public class VehicleModelRequestDaoImpl {
     static SessionFactory factory;
 
-    public int addVehicleModelRequest(int modelId, boolean isProcessed, int units, Date orderDate){
+    public int addVehicleModelRequest(int modelId, boolean isProcessed, int units,String mfEmailId, Date orderDate){
 
         Configuration configuration = new Configuration();
         configuration.configure();
@@ -31,7 +31,7 @@ public class VehicleModelRequestDaoImpl {
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            VehicleModelRequest vm = new VehicleModelRequest(modelId,isProcessed,units,orderDate);
+            VehicleModelRequest vm = new VehicleModelRequest(modelId,isProcessed, units ,mfEmailId, orderDate);
             session.save(vm);
             tx.commit();
         }catch (HibernateException e) {

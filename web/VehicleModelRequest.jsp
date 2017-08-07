@@ -16,21 +16,6 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label class="col-md-4 control-label">Request Processed?</label>
-                <div class="col-md-4">
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="hosting" value="true" ng-model="isProcessed"/> Yes
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="hosting" value="false" ng-model="isProcessed"/> No
-                        </label>
-                    </div>
-                </div>
-            </div>
 
             <div class="form-group">
                 <label class="col-md-4 control-label" style="color: #011635;">Units</label>
@@ -41,6 +26,17 @@
                     </div>
                 </div>
             </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" style="color: #011635;">Manufacturer Email ID</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                        <input name="email" placeholder="Email ID" class="form-control"  type="text" ng-model="mfEmailId">
+                    </div>
+                </div>
+            </div>
+
 
             <div class="form-group">
                 <label class="col-md-4 control-label" style="color: #011635;">Order Date</label>
@@ -58,7 +54,7 @@
             <div class="form-group" >
                 <label class="col-md-4 control-label" ></label>
                 <div class="col-md-4" style="padding-left: 13% ">
-                    <button style="background: #011635;color: white" type="submit" class="btn" ng-click="postData(modelId, isProcessed, units, orderDate)"><i class="fa fa-plus-square-o" aria-hidden="true" ></i> Add </button>
+                    <button style="background: #011635;color: white" type="submit" class="btn" ng-click="postData(modelId, isProcessed, units,mfEmailId, orderDate)"><i class="fa fa-plus-square-o" aria-hidden="true" ></i> Add </button>
                 </div>
             </div>
 

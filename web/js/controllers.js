@@ -231,20 +231,7 @@ var automodelId=Math.floor(Math.random() * 900000000) + 100000000;
         }
     }
 });
-app.controller('ctrl', function($scope, $http, $window, $rootScope){
 
-    $scope.onChange = function (e, fileList) {
-        alert('this is on-change handler!');
-    };
-
-    $scope.onLoad = function (e, reader, file, fileList, fileOjects, fileObj) {
-        alert('this is handler for file reader onload event!');
-    };
-
-    var uploadedCount = 0;
-
-    $scope.files = [];
-});
 app.controller('postSparePart', function ($scope, $http) {
     var autosPartId=Math.floor(Math.random() * 900000000) + 100000000;
     console.log($scope.name);
@@ -258,16 +245,20 @@ app.controller('postSparePart', function ($scope, $http) {
     console.log("inpost");
     $scope.postsData = function (vehicleModelId, sparePartName, price, image, units, orderedOn) {
 
-        var data = {
+        var e = document.getElementById("mySelect");
+        var strUser = e.options[e.selectedIndex].text;
+        var vid=strUser.split("---");
+
+
+var data = {
             sparePartId :autosPartId,
-            vehicleModelId : vehicleModelId,
+            vehicleModelId : vid[0],
             sparePartName : sparePartName,
             price:price,
             image : $scope.name,
             units : units,
             orderedOn : orderedOn
         };
-        //console.log("ID"+vehicleModelId);
         $http.post('http://localhost:8080/rest/server/getSparePart', data).then(function (response) {
             if (response.data)
                 $scope.msg = "Post Data Submitted Successfully!";
@@ -278,7 +269,7 @@ app.controller('postSparePart', function ($scope, $http) {
             $scope.headers = response.headers();
         });
     };
-}).directive("sfilesInput", function() {
+}).directive("filesInput", function() {
     return {
         require: "ngModel",
         link: function postLink(scope,elem,attrs,ngModel) {
@@ -299,14 +290,16 @@ app.controller('postVehicleModelRequest', function ($scope, $http) {
     $scope.isProcessed = null;
     $scope.units = null;
     $scope.orderDate = null;
+    $scope.mfEmailId = null;
     console.log("inpost");
-    $scope.postData = function (modelId, isProcessed, units, orderDate) {
+    $scope.postData = function (modelId, isProcessed, units,mfEmailId, orderDate) {
         alert(orderDate);
         var data = {
             requestId : 0,
             modelId : modelId,
-            isProcessed : isProcessed,
+            isProcessed : "false",
             units : units,
+            mfEmailId:mfEmailId,
             orderDate : orderDate
         };
         console.log("inpostsend");
@@ -326,14 +319,16 @@ app.controller('postSparePartRequest', function ($scope, $http) {
     $scope.sparePartId = null;
     $scope.isProcessed = null;
     $scope.units = null;
+    $scope.mfEmailId=null;
     $scope.orderDate = null;
     //console.log("inpost");
-    $scope.postData = function (sparePartId, isProcessed, units, orderDate) {
+    $scope.postData = function (sparePartId, isProcessed, units,mfEmailId, orderDate) {
         var data = {
             requestId : 0,
             sparePartId : sparePartId,
             isProcessed : isProcessed,
             units : units,
+            mfEmailId:mfEmailId,
             orderDate : orderDate
         };
         $http.post('http://localhost:8080/rest/server/getSparePartRequest', data).then(function (response) {
@@ -352,14 +347,16 @@ app.controller('updateVehicleModelRequest', function ($scope, $http) {
     $scope.modelId = null;
     $scope.isProcessed = null;
     $scope.units = null;
+    $scope.mfEmailId = null;
     $scope.orderDate = null;
     console.log("inposter");
-    $scope.updateData = function (requestId, modelId, isProcessed, units, orderDate) {
+    $scope.updateData = function (requestId, modelId, isProcessed, units,mfEmailId, orderDate) {
         var data = {
             requestId : requestId,
             modelId : modelId,
             isProcessed : isProcessed,
             units : units,
+            mfEmailId: mfEmailId,
             orderDate : orderDate
         };
         console.log("inpostsend");
@@ -381,14 +378,16 @@ app.controller('updateSparePartRequest', function ($scope, $http) {
     $scope.sparePartId = null;
     $scope.isProcessed = null;
     $scope.units = null;
+    $scope.mfEmailId=null;
     $scope.orderDate = null;
     console.log("inposter");
-    $scope.updateData = function (requestId, modelId, isProcessed, units, orderDate) {
+    $scope.updateData = function (requestId, modelId, isProcessed, units,mfEmailId, orderDate) {
         var data = {
             requestId : requestId,
             sparePartId : modelId,
-            isProcessed : isProcessed,
+            isProcessed : true,
             units : units,
+            mfEmailId:mfEmailId,
             orderDate : orderDate
         };
         console.log("inpostsend");

@@ -4,6 +4,8 @@
             <h3 class="mypanelheading"> Add Spare Part</h3>
         </div>
     </div>
+    <div style="position: fixed;top:24%;left:71%;" id="showTableLoader">
+    <img src="images/tableloader.gif" width="38"></div>
     <form class="well form-horizontal" action=" " method="post"  id="contact_form"  enctype="multipart/form-data" ng-controller="postSparePart">
         <fieldset >
             <div class="form-group" ng-controller="viewVehicleController">
@@ -11,7 +13,7 @@
                 <div class="col-md-4 selectContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-car" aria-hidden="true"></i></span>
-                        <select name="vmid" class="form-control selectpicker" ng-model="vehicleModelId" ng-options="something as x.modelId+'----'+x.modelName for x in data">
+                        <select name="vmid" id="mySelect" class="form-control selectpicker" ng-model="vehicleModelId" ng-options="something as x.modelId+'---'+x.modelName for x in data">
                             <option value="">Select Model</option>
                         </select>
                     </div>
@@ -95,7 +97,7 @@
             <div class="form-group" >
                 <label class="col-md-4 control-label" ></label>
                 <div class="col-md-4" style="padding-left: 13% ">
-                    <button style="background: #011635;color: white" type="submit" class="btn" ng-click="postsData(vehicleModelId.modelId, sparePartName , price, image, units, orderedOn)"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add </button>
+                    <button style="background: #011635;color: white" type="submit" class="btn" ng-click="postsData(vehicleModelId.modelName, sparePartName , price, image, units, orderedOn)"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add </button>
                 </div>
             </div>
 

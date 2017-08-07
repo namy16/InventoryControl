@@ -24,16 +24,29 @@ public class SparePartRequest {
     int units;
 
     @Column
+    String mfEmailId;
+
+    @Column
     Date orderDate;
 
-    public SparePartRequest(int sparePartId, boolean isProcessed, int units, Date orderDate) {
+    public SparePartRequest(int sparePartId, boolean isProcessed, int units, String mfEmailId, Date orderDate) {
         this.sparePartId = sparePartId;
         this.isProcessed = isProcessed;
         this.units = units;
+        this.mfEmailId = mfEmailId;
         this.orderDate = orderDate;
     }
+
     public SparePartRequest() {
 
+    }
+
+    public String getMfEmailId() {
+        return mfEmailId;
+    }
+
+    public void setMfEmailId(String mfEmailId) {
+        this.mfEmailId = mfEmailId;
     }
 
     public int getRequestId() {
@@ -46,6 +59,18 @@ public class SparePartRequest {
 
     public int getSparePartId() {
         return sparePartId;
+    }
+
+    @Override
+    public String toString() {
+        return "SparePartRequest{" +
+                "requestId=" + requestId +
+                ", sparePartId=" + sparePartId +
+                ", isProcessed=" + isProcessed +
+                ", units=" + units +
+                ", mfEmailId='" + mfEmailId + '\'' +
+                ", orderDate=" + orderDate +
+                '}';
     }
 
     public void setSparePartId(int sparePartId) {
@@ -76,14 +101,4 @@ public class SparePartRequest {
         this.orderDate = orderDate;
     }
 
-    @Override
-    public String toString() {
-        return "SparePartRequest{" +
-                "requestId=" + requestId +
-                ", sparePartId=" + sparePartId +
-                ", isProcessed=" + isProcessed +
-                ", units=" + units +
-                ", orderDate=" + orderDate +
-                '}';
-    }
 }
