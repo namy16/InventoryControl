@@ -209,6 +209,7 @@ var automodelId=Math.floor(Math.random() * 900000000) + 100000000;
 
             $http.post('http://localhost:8080/rest/server/getVehicle', vdata).then(function (response) {
             if (response.vdata)
+
                 $scope.msg = "Post Data Submitted Successfully!";
         }, function (response) {
             $scope.msg = "Service not Exists";
@@ -293,10 +294,13 @@ app.controller('postVehicleModelRequest', function ($scope, $http) {
     $scope.mfEmailId = null;
     console.log("inpost");
     $scope.postData = function (modelId, isProcessed, units,mfEmailId, orderDate) {
-        alert(orderDate);
+        var e = document.getElementById("mySelect2");
+        var strUser = e.options[e.selectedIndex].text;
+        var vid=strUser.split("---");
+
         var data = {
             requestId : 0,
-            modelId : modelId,
+            modelId : vid[0],
             isProcessed : "false",
             units : units,
             mfEmailId:mfEmailId,
@@ -305,6 +309,7 @@ app.controller('postVehicleModelRequest', function ($scope, $http) {
         console.log("inpostsend");
         $http.post('http://localhost:8080/rest/server/getVehicleRequest', data).then(function (response) {
             if (response.data)
+                document.getElementById("showTableLoader").style.display="none";
                 $scope.msg = "Post Data Submitted Successfully!";
         }, function (response) {
             $scope.msg = "Service not Exists";
@@ -323,9 +328,13 @@ app.controller('postSparePartRequest', function ($scope, $http) {
     $scope.orderDate = null;
     //console.log("inpost");
     $scope.postData = function (sparePartId, isProcessed, units,mfEmailId, orderDate) {
+        var e = document.getElementById("mySelect3");
+        var strUser = e.options[e.selectedIndex].text;
+        var vid=strUser.split("---");
+
         var data = {
             requestId : 0,
-            sparePartId : sparePartId,
+            sparePartId : vid[0],
             isProcessed : isProcessed,
             units : units,
             mfEmailId:mfEmailId,

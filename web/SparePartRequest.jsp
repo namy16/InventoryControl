@@ -4,18 +4,22 @@
             <h3 class="mypanelheading"> Add Spare Part Request</h3>
         </div>
     </div>
+    <div style="position: fixed;top:24%;left:71%;" id="showTableLoader">
+        <img src="images/tableloader.gif" width="38"></div>
+
     <form class="well form-horizontal" action=" " method="post"  id="contact_form"  enctype="multipart/form-data" ng-controller="postSparePartRequest">
         <fieldset >
-            <div class="form-group">
-                <label class="col-md-4 control-label" style="color: #011635;">Spare Part Id</label>
-                <div class="col-md-4 inputGroupContainer">
+            <div class="form-group" ng-controller="viewSparePartController">
+                <label class="col-md-4 control-label">Spare Part</label>
+                <div class="col-md-4 selectContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-cog" aria-hidden="true"></i></span>
-                        <input  name="vmid" placeholder="Spare Part Id" class="form-control"  type="number" ng-model="sparePartId">
+                        <select name="vmid" id="mySelect3" class="form-control selectpicker" ng-model="sparePartId" ng-options="something as x.sparePartId+'---'+x.sparePartName for x in data">
+                            <option value="">Select Spare Part</option>
+                        </select>
                     </div>
                 </div>
             </div>
-
 
             <div class="form-group">
                 <label class="col-md-4 control-label" style="color: #011635;">Units</label>
@@ -53,7 +57,7 @@
             <div class="form-group" >
                 <label class="col-md-4 control-label" ></label>
                 <div class="col-md-4" style="padding-left: 13% ">
-                    <button style="background: #011635;color: white" type="submit" class="btn" ng-click="postData(sparePartId, isProcessed, units,mfEmailId, orderDate)"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add </button>
+                    <button style="background: #011635;color: white" type="submit" class="btn" ng-click="postData(sparePartId.sparePartId, isProcessed, units,mfEmailId, orderDate)"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add </button>
                 </div>
             </div>
 

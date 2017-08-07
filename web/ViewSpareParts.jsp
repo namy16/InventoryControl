@@ -29,7 +29,7 @@
             <td>{{x.sparePartId}}</td>
             <td>{{x.vehicleModelId}}</td>
             <td>{{x.sparePartName}}</td>
-            <td><button type="button" id="mybutton" class="btn"  ng-click="show(x.image,x.modelName)">View</button></td>
+            <td><button type="button" id="mybutton" class="btn"  ng-click="show(x.image,x.sparePartName)">View</button></td>
             <td>{{x.units}}</td>
             <td>{{x.orderedOn}}</td>
         </tr>
