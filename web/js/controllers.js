@@ -82,59 +82,96 @@ app.controller('myController', function($scope) {
  * Controllers which are getting the requests
  * */
     app.controller('viewVehicleController', function($scope, $http) {
+        document.getElementById("showTableLoader").style.display="block";
         $http.get('http://localhost:8080/rest/server/viewVehicleModel').
         then(function(response) {
             $scope.data = response.data;
+            document.getElementById("showTableLoader").style.display="none";
         });
     });
     app.controller('viewSparePartController', function($scope, $http) {
+        document.getElementById("showTableLoader").style.display="block";
         $http.get('http://localhost:8080/rest/server/viewSparePart').
         then(function(response) {
             $scope.data = response.data;
+            document.getElementById("showTableLoader").style.display="none";
         });
     });
     app.controller('viewSoldVehicleController', function($scope, $http) {
+        document.getElementById("showTableLoader").style.display="block";
         $http.get('http://localhost:8080/rest/server/viewSoldVehicle').
         then(function(response) {
             $scope.data = response.data;
+            document.getElementById("showTableLoader").style.display="none";
         });
     });
     app.controller('viewSoldSparePartController', function($scope, $http) {
+        document.getElementById("showTableLoader").style.display="block";
         $http.get('http://localhost:8080/rest/server/viewSoldSparePart').
         then(function(response) {
             $scope.data = response.data;
+            document.getElementById("showTableLoader").style.display="none";
         });
     });
     app.controller('viewVehicleModelRequestsController', function($scope, $http) {
+        document.getElementById("showTableLoader").style.display="block";
         $http.get('http://localhost:8080/rest/server/viewVehicleModelRequests').
         then(function(response) {
             $scope.data = response.data;
+            document.getElementById("showTableLoader").style.display="none";
         });
 
         $scope.update = function(){
+            document.getElementById("showTableLoader").style.display="block";
             $http.get('http://localhost:8080/rest/server/viewVehicleModelRequests')
                 .then(function(response) {
                     $scope.data = response.data;
+                    document.getElementById("showTableLoader").style.display="none";
                 });
         }
 
     });
     app.controller('viewSparepartRequestsController', function($scope, $http) {
+        document.getElementById("showTableLoader").style.display="block";
         $http.get('http://localhost:8080/rest/server/viewSparepartRequests').
         then(function(response) {
             $scope.data = response.data;
+            document.getElementById("showTableLoader").style.display="none";
         });
         $scope.update = function(){
+            document.getElementById("showTableLoader").style.display="block";
             $http.get('http://localhost:8080/rest/server/viewSparepartRequests')
                 .then(function(response) {
                 $scope.data = response.data;
-            });
+                    document.getElementById("showTableLoader").style.display="none";
+                });
         }
     });
 
 
 
+app.controller('imageController', function($scope) {
+    //initially will be made false
+    $scope.show = function () { //whenever myFunc() is called, display of above div is toggled
 
+        var modal = document.getElementById('myModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+            //alert(b.innerHTML);
+            modal.style.display = "block";
+            modalImg.src = "/images/Koala.jpg";
+            captionText.innerHTML = "Koala";
+        var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+    }
+
+    };
+});
 /*
 *
 * Controllers which are posting the data to the server*/
@@ -154,6 +191,7 @@ var automodelId=Math.floor(Math.random() * 900000000) + 100000000;
 
     console.log("inpostctrl");
     $scope.postData = function (modelName,price, bodyType, transmission, color, image, units, description, releaseDate) {
+
         //console.log("value" +$scope.file.files[0].name);
     //    alert("name "+$scope.name);
 
@@ -266,6 +304,7 @@ app.controller('postVehicleModelRequest', function ($scope, $http) {
     $scope.orderDate = null;
     console.log("inpost");
     $scope.postData = function (modelId, isProcessed, units, orderDate) {
+        alert(orderDate);
         var data = {
             requestId : 0,
             modelId : modelId,

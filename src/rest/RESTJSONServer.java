@@ -12,6 +12,10 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.awt.*;
 import java.io.*;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,6 +82,8 @@ public class RESTJSONServer {
 		VehicleModelDaoImpl vmd = new VehicleModelDaoImpl();
 		vmd.addVehicleModel(vm.getModelId(), vm.getModelName(), vm.getPrice(), vm.getTransmission(), vm.getColor(), vm.getImage(), vm.getBodyType(),vm.getUnits(), vm.getDescription(), vm.getReleaseDate());
 		System.out.println("createTrackInJSON()...."+result);
+		VehicleModelDaoImpl vmd1= new VehicleModelDaoImpl();
+		vmd1.addVehicleModel(vm.getModelId(),vm.getModelName(),vm.getPrice(),vm.getTransmission(),vm.getColor(),vm.getImage(),vm.getBodyType(),vm.getUnits(),vm.getDescription(),vm.getReleaseDate());
 		return vm;
 	}
 
@@ -94,8 +100,10 @@ public class RESTJSONServer {
 	@POST
 	@Path("/getVehicleRequest")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public VehicleModelRequest getVehicleRequest(VehicleModelRequest vm){
+	public VehicleModelRequest getVehicleRequest(VehicleModelRequest vm) throws ParseException {
 		String result = "Request : "+vm;
+		//DateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
+		//System.out.println(date);
 		VehicleModelRequestDaoImpl vdm = new VehicleModelRequestDaoImpl();
         System.out.println(vm.getOrderDate());
 		vdm.addVehicleModelRequest(vm.getModelId(), vm.isProcessed(), vm.getUnits(), vm.getOrderDate());

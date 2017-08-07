@@ -45,7 +45,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" style="color: #011635;">Order Date</label>
                 <div class="col-md-4 inputGroupContainer">
-                    <div class='input-group date' id='datetimepicker1'>
+                    <div class='input-group'>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>

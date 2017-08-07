@@ -4,6 +4,7 @@
             <h3 class="mypanelheading"> Spare Parts Requested</h3>
         </div>
     </div>
+    <div style="position: fixed;top:40%;left:53%;display: none" id="showTableLoader"><img src="images/tableloader.gif"></div>
     <table class="container" style="width: 100%" ng-controller="updateSparePartRequest">
         <thead>
         <tr>

@@ -13,7 +13,7 @@ public class VehicleModelRequest {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     int requestId;
 
-    @Column(unique = true)
+    @Column
     int modelId;
 
     @Column

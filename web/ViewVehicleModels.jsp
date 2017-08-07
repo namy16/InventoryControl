@@ -4,15 +4,22 @@
             <h3 class="mypanelheading"> Available Vehicle Models</h3>
         </div>
     </div>
+    <div style="position: fixed;top:40%;left:53%;display: none" id="showTableLoader"><img src="images/tableloader.gif"></div>
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
     <table class="container" style="width: 100%">
     <thead>
 
                     <tr>
                         <th><h1>Model Id</h1></th>
                         <th><h1>Model Name</h1></th>
+                        <th><h1>Price</h1></th>
                         <th><h1>Body Type</h1></th>
-                        <th><h1>Color</h1></th>
                         <th><h1>Transmission</h1></th>
+                        <th><h1>Color</h1></th>
                         <th><h1>Image</h1></th>
                         <th><h1>Units</h1></th>
                         <th><h1>Description</h1></th>
@@ -21,13 +28,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="x in data">
+                    <tr ng-repeat="x in data" ng-controller="imageController">
                         <td>{{x.modelId}}</td>
                         <td>{{x.modelName}}</td>
+                        <td>{{x.price}}</td>
+                        <td>{{x.bodyType}}</td>
                         <td>{{x.transmission}}</td>
                         <td>{{x.color}}</td>
-                        <td>{{x.image}}</td>
-                        <td>{{x.bodyType}}</td>
+                        <td><button type="button" id="mybutton" class="btn"  ng-click="show()">View</button></td>
                         <td>{{x.units}}</td>
                         <td>{{x.description}}</td>
                         <td>{{x.releaseDate}}</td>
@@ -37,4 +45,7 @@
                 </table>
 
             </div>
+<script>
+
+</script>
 <!-- /.container -->
