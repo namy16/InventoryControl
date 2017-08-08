@@ -13,10 +13,12 @@
                 <div class="col-md-4 selectContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-car" aria-hidden="true"></i></span>
-                        <select name="vmid" id="mySelect" class="form-control selectpicker" ng-model="vehicleModelId" ng-options="something as x.modelId+'---'+x.modelName for x in data">
+                        <select name="vmid" id="mySelect" class="form-control selectpicker" ng-model="vehicleModelId" ng-options="something as x.modelId+'---'+x.modelName for x in data" required>
                             <option value="">Select Model</option>
                         </select>
                     </div>
+                    <p ng-show="myForm.vmid.$invalid &&myForm.vmid.$touched " class="help_block" style="color: orangered"><b>Select a Model!</b></p>
+
                 </div>
             </div>
             <!-- Text input-->
