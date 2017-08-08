@@ -478,12 +478,12 @@ app.controller('viewVehicleGraph', function($scope, $http) {
             var value1 = obj["bodyType"];
             //console.log(value1);
             if($scope.map[value1] === undefined){
-                $scope.map[value1] = 1;
+                $scope.map[value1] = obj["units"];
 
             }
             else{
                 console.log("it was here");
-                $scope.map[value1] = $scope.map[value1]+1;
+                $scope.map[value1] = $scope.map[value1]+obj["units"];
             }
         }
         $scope.width = [];
