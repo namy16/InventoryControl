@@ -29,7 +29,24 @@
     <script src="js/myJs.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/notification.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <script type="text/javascript">
 
+        function fun() {
+            var doc = new jsPDF();
+            var source = $('#target').html();
+            var specialElementHandlers = {
+                '#bypassme': function (element, renderer) {
+                    return true;
+                }
+            };
+            doc.fromHTML(source, 0.5, 0.5, {
+                'width': 75,'elementHandlers': specialElementHandlers
+            });
+            doc.output("dataurlnewwindow");
+        };
+
+    </script>
   </head>
   <body ng-app="myApp" ng-controller="myController">
   <div id="wrapper">

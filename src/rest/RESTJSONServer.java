@@ -160,4 +160,22 @@ public class RESTJSONServer {
 		return sp;
 	}
 
+	@POST
+	@Path("/soldvehicleService")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public SoldVehicleModel soldVehicleService(SoldVehicleModel sp){
+		String result = "Request : "+sp;
+		SoldVehicleModelDaoImpl soldVehicleModelDao = new SoldVehicleModelDaoImpl();
+		soldVehicleModelDao.addSoldVehicleModel(sp.getModelId(),sp.getColor(), sp.getSoldOn(), sp.getEmailId());
+		return sp;
+	}
+
+
+	@POST
+	@Path("/userLogin")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<User> soldVehicleService(User userLogin){
+		UserDaoImpl userDao = new UserDaoImpl();
+		return userDao.listUsers();
+	}
 }
