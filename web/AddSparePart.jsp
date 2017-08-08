@@ -6,53 +6,59 @@
     </div>
     <div style="position: fixed;top:24%;left:71%;" id="showTableLoader">
     <img src="images/tableloader.gif" width="38"></div>
-    <form class="well form-horizontal" action=" " method="post"  id="contact_form"  enctype="multipart/form-data" ng-controller="postSparePart">
+    <form class="well form-horizontal" name="myForm2" action=" " method="post"  id="contact_form"  enctype="multipart/form-data" ng-controller="postSparePart">
         <fieldset >
             <div class="form-group" ng-controller="viewVehicleController">
                 <label class="col-md-4 control-label">Vehicle Model</label>
                 <div class="col-md-4 selectContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-car" aria-hidden="true"></i></span>
-                        <select name="vmid" id="mySelect" class="form-control selectpicker" ng-model="vehicleModelId" ng-options="something as x.modelId+'---'+x.modelName for x in data" required>
+                        <select name="selectId" id="mySelect" class="form-control selectpicker" ng-model="vehicleModelId" ng-options="something as x.modelId+'---'+x.modelName for x in data" required>
                             <option value="">Select Model</option>
                         </select>
                     </div>
-                    <p ng-show="myForm.vmid.$invalid &&myForm.vmid.$touched " class="help_block" style="color: orangered"><b>Select a Model!</b></p>
 
                 </div>
             </div>
             <!-- Text input-->
 
             <div class="form-group">
-                <label class="col-md-4 control-label mycolor" style="color: #011635;">Spare Part Name</label>
+                <label class="col-md-4 control-label mycolor" style="color: white;">Spare Part Name</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-cog" aria-hidden="true"></i></span>
-                        <input name="spname" placeholder="Spare Part Name" class="form-control"  type="text" ng-model="sparePartName">
+                        <input name="spName" placeholder="Spare Part Name" class="form-control"  type="text" ng-model="sparePartName" required>
                     </div>
+                    <p ng-show="myForm2.spName.$invalid && myForm2.spName.$touched" class="help_block" style="color:orangered"><b>Spare part Name is required!</b></p>
+
                 </div>
+
             </div>
 
             <div class="form-group">
-                <label class="col-md-4 control-label mycolor" style="color: #011635;">Price</label>
+                <label class="col-md-4 control-label mycolor" style="color: white">Price</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-inr" aria-hidden="true"></i></span>
-                        <input name="spname" placeholder="Price" class="form-control"  type="number" ng-model="price">
+                        <input name="price" placeholder="Price" class="form-control"  type="number" ng-model="price" required>
                     </div>
+                    <p ng-show="myForm2.price.$invalid && myForm2.price.$touched" class="help_block" style="color:orangered"><b>Price is required!</b></p>
+
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group" id="showButton">
-                <label class="col-md-4 control-label" style="color: #011635;">Image</label>
+                <label class="col-md-4 control-label" style="color: white;">Image</label>
                 <div class="col-md-4 inputGroupContainer" >
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-file-picture-o"></i></span>
                         <input name="file" id="vfiles" value="Choose Image" class="form-control" type="file" files-input ng-model="fileArray" multiple required >
                     </div>
+                    <p ng-show="myForm2.file.$invalid && myForm2.file.$untouched" class="help_block" style="color:orangered"><b>Choose a image and upload!</b></p>
+
                 </div>
-                <span ><button type="button" class="btn" style="background: #011635;color: white;" onclick="AjaxFileUpload()" ><i class="fa fa-upload" aria-hidden="true"></i></button></span>
+                <span ><button type="button" class="btn" style="background: #011635;color: white;" onclick="AjaxFileUpload()"><i class="fa fa-upload" aria-hidden="true"></i></button></span>
             </div>
             <div class="form-group" id="showLoading" style="display: none">
                 <label class="col-md-4 control-label" style="color: #011635;">Image</label>
@@ -74,17 +80,19 @@
             <!-- Text input-->
 
             <div class="form-group">
-                <label class="col-md-4 control-label" style="color: #011635;">Units</label>
+                <label class="col-md-4 control-label" style="color: white">Units</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-list-ol" aria-hidden="true"></i></span>
-                        <input name="units" placeholder="Units" class="form-control"  type="number" ng-model="units">
+                        <input name="units" placeholder="Units" class="form-control"  type="number" ng-model="units" required>
                     </div>
+                    <p ng-show="myForm2.units.$invalid && myForm2.units.$touched" class="help_block" style="color:orangered"><b>Units required!</b></p>
+
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="col-md-4 control-label" style="color: #011635;">Release Date</label>
+                <label class="col-md-4 control-label" style="color: white">Release Date</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class='input-group date' id='datetimepicker1'>
                     <span class="input-group-addon">
@@ -92,7 +100,9 @@
                     </span>
                         <input type='date' class="form-control" name="date" ng-model="orderedOn"/>
                     </div>
-                    </div>
+                    <p ng-show="myForm2.date.$invalid && myForm2.date.$touched" class="help_block" style="color:orangered"><b>Date is required!</b></p>
+
+                </div>
             </div>
 
             <!-- Button -->

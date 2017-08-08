@@ -7,7 +7,7 @@
     <form class="well form-horizontal" action=" " name="myForm" method="post"  id="contact_form"  enctype="multipart/form-data" ng-controller = "postVehicleModel" >
         <fieldset >
              <div class="form-group">
-                <label class="col-md-4 control-label" style="color: #011635;">Model Name</label>
+                <label class="col-md-4 control-label" style="color: white;">Model Name</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-car" aria-hidden="true"></i></span>
@@ -21,7 +21,7 @@
             <!-- Text input-->
 
             <div class="form-group">
-                <label class="col-md-4 control-label mycolor" style="color: #011635;">Price</label>
+                <label class="col-md-4 control-label mycolor" style="color: white;">Price</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-inr" aria-hidden="true"></i></span>
@@ -36,7 +36,7 @@
             <!-- Text input-->
 
             <div class="form-group">
-                <label class="col-md-4 control-label mycolor" style="color: #011635;">Body Type</label>
+                <label class="col-md-4 control-label mycolor" style="color: white;">Body Type</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-truck"></i></span>
@@ -48,7 +48,7 @@
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" style="color: #011635;">Color</label>
+                <label class="col-md-4 control-label" style="color: white">Color</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-paint-brush" aria-hidden="true"></i></span>
@@ -62,7 +62,7 @@
             <!-- Text input-->
 
             <div class="form-group">
-                <label class="col-md-4 control-label" style="color: #011635;">Transmission</label>
+                <label class="col-md-4 control-label" style="color: white">Transmission</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-car"></i></span>
@@ -75,7 +75,7 @@
             <!-- Text input-->
 
             <div class="form-group" id="showButton">
-                <label class="col-md-4 control-label" style="color: #011635;">Image</label>
+                <label class="col-md-4 control-label" style="color: white">Image</label>
                 <div class="col-md-4 inputGroupContainer" >
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-file-picture-o"></i></span>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="form-group" id="showLoading" style="display: none">
-                <label class="col-md-4 control-label" style="color: #011635;">Image</label>
+                <label class="col-md-4 control-label" style="color: white">Image</label>
                 <div class="col-md-4 inputGroupContainer"  >
                     <div class="input-group" style="align-content: center;padding-left: 45%">
                         <img src="images/loaders.gif">
@@ -97,7 +97,7 @@
                 </div>
             </div>
             <div class="form-group" id="showMessage" style="display: none">
-                <label class="col-md-4 control-label" style="color: #011635;"></label>
+                <label class="col-md-4 control-label" style="color: white"></label>
                 <div class="col-md-4 inputGroupContainer"  >
                     <div class="input-group" style="align-content: center;padding-left: 70px">
                         <i  style="color: #42f445;" class="fa fa-check fa-2x" aria-hidden="true">&nbsp;<b style="font-family: Arial;font-size: medium">Image Uploaded Successfully</b></i>
@@ -108,7 +108,7 @@
             <!-- Text input-->
 
             <div class="form-group">
-                <label class="col-md-4 control-label" style="color: #011635;">Units</label>
+                <label class="col-md-4 control-label" style="color: white">Units</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-list-ol" aria-hidden="true"></i></span>
@@ -121,7 +121,7 @@
 
 
             <div class="form-group">
-                <label class="col-md-4 control-label" style="color: #011635;">Description</label>
+                <label class="col-md-4 control-label" style="color: white">Description</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
@@ -131,7 +131,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-4 control-label" style="color: #011635;">Release Date</label>
+                <label class="col-md-4 control-label" style="color: white">Release Date</label>
                 <div class="col-md-4 inputGroupContainer">
                 <div class='input-group date' id='datetimepicker1'>
                     <span class="input-group-addon">
@@ -153,7 +153,7 @@
             <div class="form-group" >
                 <label class="col-md-4 control-label" ></label>
                 <div class="col-md-4" style="padding-left: 13% ">
-                    <button style="background: #011635;color: white" type="submit" class="btn" ng-click="postData(modelName,price, bodyType, transmission, color, image, units, description, releaseDate)"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add </button>
+                    <button style="background: #011635;color: white" type="submit" class="btn" ng-click="postData(modelName,price, bodyType, transmission, color, image, units, description, releaseDate);addVehicleModel()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add </button>
                 </div>
             </div>
 

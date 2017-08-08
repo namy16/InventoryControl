@@ -49,6 +49,13 @@
     </script>
   </head>
   <body ng-app="myApp" ng-controller="myController">
+
+  <%
+  request.getSession(false);
+  if(session.getAttribute("email")!=null ){
+
+  %>
+
   <div id="wrapper">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background: #011635;">
       <div class="container-fluid">
@@ -158,5 +165,19 @@
     <div id ="statistics" ng-include="'/Statistics.html'">
     </div>
   </div>
+
+
+  <%
+    }
+    else{
+      %>
+      <nav class="navbar navbar-inverse navbar-fixed-top" style="background: #011635;">
+  </nav>
+  <h1 class="mypanelheading" align="center" style="padding-top: 5%">Please Login to Continue</h1>
+    <center><a href="/index.jsp"  class="btn" ><h2 class="mypanelheading"><button class="btn">Login</button></h2></a></center>
+  <nav class="navbar navbar-inverse navbar-fixed-bottom" style="background: #011635;">
+  </nav>
+    <%}
+  %>
   </body>
 </html>

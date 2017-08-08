@@ -7,41 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
-    #login-dp{
-      min-width: 250px;
-      padding: 14px 14px 0;
-      overflow:hidden;
-      background-color:white;
-    }
-    #login-dp .help-block{
-      font-size:12px
-    }
-    #login-dp .bottom{
-      background-color:white;
-      border-top:1px solid #ddd;
-      clear:both;
-      padding:14px;
-    }
-
-    #login-dp .social-buttons a{
-      width: 49%;
-    }
-    #login-dp .form-group {
-      margin-bottom: 10px;
-    }
-
-    @media(max-width:768px){
-      #login-dp{
-        background-color: inherit;
-        color: #fff;
-      }
-      #login-dp .bottom{
-        background-color: inherit;
-        border-top:0 none;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body style="background: #f5f5f5;padding-top: 50px;">
 <div class="container-fluid" >
@@ -65,14 +31,14 @@
             <div class="row">
               <div class="col-md-12">
                 <h3 style="font-family: Cambria">Login</h3>
-                <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                <form class="form" action="/CheckUsername.jsp" role="form" method="post"  accept-charset="UTF-8" id="login-nav">
                   <div class="form-group">
-                    <label class="sr-only" for="username">Username</label>
-                    <input type="text" class="form-control" id="username" placeholder="Username" required onblur="checkUsername()">
+                    <label class="sr-only" for="username">Email Id</label>
+                    <input type="text" class="form-control" id="username" name="email" placeholder="Email Id" required >
                   </div>
                   <div class="form-group">
                     <label class="sr-only" for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password" required>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                     <div class="help-block text-right"><a href="">Forget the password ?</a></div>
                   </div>
                   <div class="form-group">
@@ -126,35 +92,53 @@
 </nav>
   <br>
 
-  <div class="row">
-  <div class="col-md-6">
-  <img src="images/cdkhome.png" style="padding-left: 20px">
-</div>
-  <div class="col-md-6" style="padding-top: 60px">
-    <h2> Dealer Management <span style="font-family:Cambria;color: #82c604">System</span></h2>
-  </div>
-</div>
-  <br>
+
   <div id="myCarousel" class="carousel slide" data-ride="carousel"  >
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
       <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
+      <li data-target="#myCarousel" data-slide-to="5"></li>
+      <li data-target="#myCarousel" data-slide-to="6"></li>
+      <li data-target="#myCarousel" data-slide-to="7"></li>
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" >
-      <div class="item active">
-        <img  src="images/pic1.jpg"  alt="Cdk Banner1">
+      <div class="item active" >
+        <img  src="cars/IMG1.jpg"  alt="Cdk Banner1">
       </div>
 
       <div class="item">
-        <img src="images/pic2.jpg" alt="Cdk Banner2">
+        <img src="cars/IMG14.jpg" alt="Cdk Banner2">
       </div>
 
       <div class="item">
-        <img src="images/pic3.jpg" alt="Cdk Banner3">
+        <img src="cars/IMG5.jpg" alt="Cdk Banner3">
+      </div>
+
+      <div class="item">
+        <img src="cars/IMG6.jpg" alt="Cdk Banner3">
+      </div>
+
+      <div class="item">
+        <img src="cars/IMG7.jpg" alt="Cdk Banner3">
+      </div>
+
+      <div class="item">
+        <img src="cars/IMG8.jpg" alt="Cdk Banner3">
+      </div>
+
+      <div class="item">
+        <img src="cars/IMG9.jpg" alt="Cdk Banner3">
+      </div>
+
+
+      <div class="item">
+        <img src="cars/IMG10.jpg" alt="Cdk Banner3">
       </div>
     </div>
     <!-- Left and right controls -->
@@ -168,17 +152,146 @@
     </a>
   </div>
 <br>
+  <div class="container">
+    <h3 align="center">Buy Cars</h3>
+    <marquee style=" scrollamount:14 "  scrolldelay="34" behavior="alternate" onmouseover="this.stop()" onmouseout="this.start()">
+      <a name="rishav1">
+        <%--Payment gate way url--%>
+        <%--<li><h3>Buy Cars</h3></li>--%>
+        <ul class="list-inline list-unstyled r">
+          <li class="productbox"><a href="/index_mainFile.jsp">
+            <img src="cars/convertible1/conv_blu.jpg" class="img-responsive">
+            <div class="producttitle" align="center"> BMW Convertible</div></a>
+          </li>
+          <li class="productbox"><a href="/index_mainFile2.jsp">
+            <img src="cars/convertible1/conv_blk.jpg" class="img-responsive">
+            <div class="producttitle" align="center"> BMW Convertible</div></a>
+          </li>
+          <li class="productbox"><a href="/index_mainFile3.jsp">
+            <img src="cars/convertible1/conv_w1.jpg" class="img-responsive">
+            <div class="producttitle" align="center"> BMW Convertible</div></a>
+          </li>
+          <li class="productbox"><a href="/index_mainFile4.jsp">
+            <img src="cars/coupe1/coupe_blk.jpg" class="img-responsive">
+            <div class="producttitle" align="center"> BMW Coupe</div></a>
+          </li>
+          <li class="productbox"><a href="/index_mainFile5.jsp">
+            <img src="cars/coupe1/coupe_blu.jpg" class="img-responsive">
+            <div class="producttitle" align="center"> BMW Coupe</div></a>
+          </li>
+          <li class="productbox"><a href="/index_mainFile6.jsp">
+            <img src="cars/coupe1/coupe_w.jpg" class="img-responsive">
+            <div class="producttitle" align="center"> BMW Coupe</div></a>
+          </li>
+          <li class=" productbox"><a href="/index_mainFile7.jsp">
+            <img src="cars/gran_turismo1/gt_w.jpg" class="img-responsive">
+            <div class="producttitle" align="center"> BMW Gran Turismo</div></a>
+          </li>
+          <li class="productbox"><a href="/index_mainFile.jsp">
+            <img src="cars/gran_turismo1/gt_red.jpg" class="img-responsive">
+            <div class="producttitle" align="center"> BMW Gran Turismo</div></a>
+          </li>
+          <li class="productbox"><a href="/index_mainFile2.jsp">
+            <img src="cars/gran_turismo1/gt_gld.jpg" class="img-responsive">
+            <div class="producttitle" align="center"> BMW Gran Turismo</div></a>
+          </li>
+          <li class=" productbox"><a href="/index_mainFile3.jsp">
+            <img src="cars/i1/i_blk.jpg" class="img-responsive">
+            <div class="producttitle"align="center">BMW i</div></a>
+          </li>
+          <li class=" productbox"><a href="/index_mainFile4.jsp">
+            <img src="cars/i1/i_blu.jpg" class="img-responsive">
+            <div class="producttitle" align="center"> BMW i</div></a>
+          </li>
+          <li class=" productbox"><a href="/index_mainFile5.jsp">
+            <img src="cars/i1/ia_w.jpg" class="img-responsive">
+            <div class="producttitle" align="center"> BMW i </div></a>
+          </li>
+          <li class=" productbox"><a href="/index_mainFile6.jsp">
+            <img src="cars/sedan1/sedan_blk.jpg" class="img-responsive">
+            <div class="producttitle" align="center">BMW Sedan </div></a>
+          </li>
+          <li class=" productbox"><a href="/index_mainFile7.jsp">
+            <img src="cars/sedan1/sedan_blu.jpg" class="img-responsive">
+            <div class="producttitle" align="center">BMW Sedan </div></a>
+          </li>
+          <%--<li class=" productbox">--%>
+          <%--<img src="cars/sedan1/sedan_w.jpg" class="img-responsive">--%>
+          <%--<div class="producttitle" align="center">BMW Sedan </div>--%>
+          <%--</li>--%>
+          <%--<li class=" productbox">--%>
+          <%--<img src="cars/suv1/suv_blu.jpg" class="img-responsive">--%>
+          <%--<div class="producttitle" align="center">BMW SUV </div>--%>
+          <%--</li>--%>
+          <%--<li class=" productbox">--%>
+          <%--<img src="cars/suv1/suv_blk.jpg" class="img-responsive">--%>
+          <%--<div class="producttitle" align="center">BMW SUV </div>--%>
+          <%--</li>--%>
+          <%--<li class=" productbox">--%>
+          <%--<img src="cars/suv1/suv_w.png" class="img-responsive">--%>
+          <%--<div class="producttitle" align="center">BMW SUV </div>--%>
+          <%--</li>--%>
+        </ul></a><br>
+    </marquee>
+  </div>
+  <div class="container">
+
+    <h3 align="center">Buy Spares</h3>
+    <%--<iframe height="400px"></iframe>--%>
+    <marquee style="scrollamount:10" scrolldelay="50" direction="left" behavior="alternate" onmouseover="this.stop()" onmouseout="this.start()" />
+    <a name="rishav2" href="Paymentgateway">
+      <%--Payment gate way url--%>
+      <ul class="list-inline list-unstyled r">
+        <li class="productbox">
+          <img src="Spares/ac.jpg" class="img-responsive">
+          <div class="producttitle"> Air-Conditioner</div>
+        </li>
+        <li class="productbox">
+          <img src="Spares/alloy-car-wheel-250x250.jpg" class="img-responsive">
+          <div class="producttitle"> Wheel</div>
+        </li>
+        <li class="productbox">
+          <img src="Spares/automotive-chassis-250x250.jpg" class="img-responsive">
+          <div class="producttitle"> Chassis</div>
+        </li>
+        <li class="productbox">
+          <img src="Spares/brakes.jpg" class="img-responsive">
+          <div class="producttitle"> Brakes</div>
+        </li>
+        <li class="productbox">
+          <img src="Spares/car-engine-250x250.jpg" class="img-responsive">
+          <div class="producttitle"> Engine</div>
+        </li>
+        <li class="productbox">
+          <img src="Spares/car-engine-250x250.jpg" class="img-responsive">
+          <div class="producttitle"> Ignition Switches</div>
+        </li>
+        <li class=" productbox">
+          <img src="Spares/car-stereo-250x250.jpg" class="img-responsive">
+          <div class="producttitle"> Stereo</div>
+        </li>
+        <li class="productbox">
+          <img src="Spares/steering.jpg" class="img-responsive">
+          <div class="producttitle"> Steering</div>
+        </li>
+        <li class="productbox">
+          <img src="Spares/wheel.png" class="img-responsive">
+          <div class="producttitle"> Wheel</div>
+        </li>
+      </ul></a><br>
+
+</marquee>
+  </div>
+
+
+
+
+
   <br><br><br>
   <nav class="navbar navbar-inverse navbar-fixed-bottom" style="background: #011635;">
-
   </nav>
-
 </div>
-<script>
-function checkUsername() {
-    alert(document.getElementById("username").value)
-}
-</script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>

@@ -228,9 +228,10 @@ app.controller('postVehicleModel', function ($scope, $http) {
 
 
         $http.post('http://localhost:8080/rest/server/getVehicle', vdata).then(function (response) {
-            if (response.vdata)
-
+            if (response.vdata) {
                 $scope.msg = "Post Data Submitted Successfully!";
+
+            }
         }, function (response) {
             $scope.msg = "Service not Exists";
             $scope.statusval = response.status;

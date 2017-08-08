@@ -1,0 +1,72 @@
+
+marquee>a, marquee>a:hover{color:#000; text-decoration:none;}
+.productbox {
+    width:250px;
+    height:auto;
+    background-color:#ffffff;
+    padding:10px;
+    margin-bottom:10px;
+    /*padding: 10px;*/
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #fff;
+    border: solid 1px #cbcbcb;
+    transition: all .20s ease-in-out;
+}
+.productbox img{
+    width:235px;
+    height:214px;
+}
+.producttitle {
+    font-weight:bold;
+    padding:5px 0 5px 0;
+    width: 235px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+.producttitle a{
+    color:#000;
+    text-decoration:none;
+}
+.producttitle .btn{
+    background-color:#EDEEF0;
+}
+
+
+
+#login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:white;
+}
+#login-dp .help-block{
+    font-size:12px
+}
+#login-dp .bottom{
+    background-color:white;
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+
+#login-dp .social-buttons a{
+    width: 49%;
+}
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+
+@media(max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
+}
