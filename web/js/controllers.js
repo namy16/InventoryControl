@@ -1,7 +1,7 @@
 /**
  * Created by parashan on 8/3/2017.
  */
-var app = angular.module('myApp', ['naif.base64']);
+var app = angular.module('myApp', ['ui.bootstrap']);
 app.controller('myController', function($scope) {
     $scope.addvehiclemodel = false;//initially will be made false
     $scope.addVehicleModel = function() {
@@ -193,7 +193,7 @@ app.controller('imageController', function($scope) {
  *
  * Controllers which are posting the data to the server*/
 
-app.controller('postVehicleModel', function ($scope, $http) {
+app.controller('postVehicleModel', function ($scope, $http, myModals) {
     var automodelId=Math.floor(Math.random() * 900000000) + 100000000;
     $scope.modelId = null;
     $scope.modelName = null;
@@ -205,10 +205,13 @@ app.controller('postVehicleModel', function ($scope, $http) {
     $scope.units = null;
     $scope.description = null;
     $scope.releaseDate = null;
+    $scope.successMessage = 'Way to go Jack!';
+
+
 
     console.log("inpostctrl");
     $scope.postData = function (modelName,price, bodyType, transmission, color, image, units, description, releaseDate) {
-
+        myModals.alert('success', $scope.successMessage, 'small');
         //console.log("value" +$scope.file.files[0].name);
         //    alert("name "+$scope.name);
 
@@ -511,3 +514,61 @@ app.controller('viewVehicleGraph', function($scope, $http) {
         Plotly.plot(bodyDiv, data, $scope.layout1);
     });
 });
+
+app.factory('myModals', ['$uibModal', function ($uibModal) {
+    // called from various methods within factory
+    function openModal(template, data, options) {
+        var modalOpts = {
+            animation : true,
+            templateUrl : template,
+            controller : function ($scope, $uibModalInstance, alert_data) {
+                $scope.alert_data = alert_data;
+                $scope.cancel = function () {
+                    $uibModalInstance.dismiss('cancel');
+                };
+            },
+            resolve : {
+                alert_data : data
+            },
+            size : 'medium',
+            backdrop : 'static'
+        };
+        // extend options set in each use type function
+        if (options) {
+            angular.extend(modalOpts, modalOpts);
+        }
+        var modalInstance = $uibModal.open(modalOpts);
+
+        modalInstance.result.then(function (data) {
+            // always do something when close called
+            return data;
+        }, function (data) {
+            //always do something when dismiss called
+            console.log("modal dismissed");
+            return data
+        });
+
+        return modalInstance;
+    }
+
+    // one type of modal
+    function alert(type, text, size) {
+        var template = type === 'success' ? '../template-success.html' : '../template-error.html';
+
+        var opts = {
+            size : size || 'sm'
+        };
+        var data = {
+            title : type === 'success' ? "OK" : "Ooops",
+            text : text
+        };
+
+        return openModal(template, data, opts);
+
+    }
+
+    return {
+        alert : alert
+    }
+
+}]);

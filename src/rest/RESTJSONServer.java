@@ -166,9 +166,12 @@ public class RESTJSONServer {
 	public SoldVehicleModel soldVehicleService(SoldVehicleModel sp){
 		String result = "Request : "+sp;
 		SoldVehicleModelDaoImpl soldVehicleModelDao = new SoldVehicleModelDaoImpl();
+		VehicleModelDaoImpl vehicleModelDao = new VehicleModelDaoImpl();
+		vehicleModelDao.updateVehicleModel(sp.getModelId(), -1);
 		soldVehicleModelDao.addSoldVehicleModel(sp.getModelId(),sp.getColor(), sp.getSoldOn(), sp.getEmailId());
 		return sp;
 	}
+
 
 
 	@POST

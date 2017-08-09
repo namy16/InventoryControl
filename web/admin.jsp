@@ -21,6 +21,7 @@
     <link rel = "stylesheet" type = "text/css" href = "https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/adonespitogo/angular-base64-upload/master/src/angular-base64-upload.js"></script>
+    <script data-require="ui-bootstrap@*" data-semver="1.1.1" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.1.2.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
     <link rel = "stylesheet" type = "text/css" href = "css/myCss.css" />
     <link rel = "stylesheet" type = "text/css" href = "css/table.css" />
@@ -30,6 +31,7 @@
     <script src="js/controllers.js"></script>
     <script src="js/notification.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+
     <script type="text/javascript">
 
         function fun() {
