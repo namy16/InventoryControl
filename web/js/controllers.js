@@ -450,7 +450,7 @@ app.controller('viewVehicleGraph', function($scope, $http) {
             var obj = $scope.rawData[i];
 
             var value1 = obj["units"];
-            var value2 = obj["modelName"];
+            var value2 = obj["modelName"]+" "+obj["color"];
             console.log(value1);
             $scope.rawDatavalues.push(value1);
             $scope.rawlabels.push(value2);
