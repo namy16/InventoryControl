@@ -468,8 +468,8 @@ app.controller('viewVehicleGraph', function($scope, $http) {
 
         $scope.layout = {
             title : "Vehicle Stock",
-            height: 400,
-            width: 500
+            height: 500,
+            width: 1150
         };
         //console.log(JSON.stringify($scope.preparedData)+" "+JSON.stringify($scope.layout));
         Plotly.newPlot(modelDiv, $scope.preparedData, $scope.layout);
@@ -508,7 +508,7 @@ app.controller('viewVehicleGraph', function($scope, $http) {
         $scope.layout1 = {
             title : "Vehicle Stock By Body Type",
             height: 500,
-            width: 1100
+            width: 1150
         };
 
         var data = [trace0];
