@@ -23,6 +23,10 @@
         <servlet-name>AjaxFileServlet</servlet-name>
         <servlet-class>AjaxFileServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>LogoutServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RESTful Jersey Eg2</servlet-name>
         <url-pattern>/rest/*</url-pattern>
@@ -30,6 +34,10 @@
     <servlet-mapping>
         <servlet-name>AjaxFileServlet</servlet-name>
         <url-pattern>/fileServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
 </web-app>

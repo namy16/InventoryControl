@@ -74,7 +74,7 @@
               <a href="#" id="notificationLink"><i class="fa fa-bell fa-lg" aria-hidden="true"></i></a>
               <div id="notificationContainer" ng-controller="viewVehicleControllerNotif" style="color: #0E1119">
                 <div id="notificationTitle" >Notifications : Insufficient Stock</div>
-                <div id="notificationsBody" class="notifications" ng-repeat="x in data | limitTo:4 | orderBy :'units'" style="background : gainsboro">
+                <div id="notificaLogoutServlettionsBody" class="notifications" ng-repeat="x in data | limitTo:4 | orderBy :'units'" style="background : gainsboro">
                   <b style="color: #cc0000">Insufficient Stock : </b> Order More Stock<br>
                   <b style="color: #011635">Only {{x.units}} Items Left of BMW{{x.modelName}} </b>
                 </div>
@@ -83,7 +83,7 @@
 
             </li>
             <li ><a href="#" style="color:white "><span class="glyphicon glyphicon-home" ></span> <b>Home</b></a></li>
-            <li ><a href="#about" style="color:white "><i class="fa fa-sign-out" aria-hidden="true" ></i><b> Logout</b></a></li>
+            <li ><a href="/logout" style="color:white "><i class="fa fa-sign-out" aria-hidden="true" ></i><b> Logout</b></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -174,7 +174,7 @@
       <nav class="navbar navbar-inverse navbar-fixed-top" style="background: #011635;">
   </nav>
   <h1 class="mypanelheading" align="center" style="padding-top: 5%">Please Login to Continue</h1>
-    <center><a href="/index.jsp"  class="btn" ><h2 class="mypanelheading"><button class="btn">Login</button></h2></a></center>
+    <center><a href="/index.html"  class="btn" ><h2 class="mypanelheading"><button class="btn">Login</button></h2></a></center>
   <nav class="navbar navbar-inverse navbar-fixed-bottom" style="background: #011635;">
   </nav>
     <%}

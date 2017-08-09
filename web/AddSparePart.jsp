@@ -92,7 +92,7 @@
             </div>
 
             <div class="form-group">
-                <label class="col-md-4 control-label" style="color: white">Release Date</label>
+                <label class="col-md-4 control-label" style="color: white">MFG Date</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class='input-group date' id='datetimepicker1'>
                     <span class="input-group-addon">

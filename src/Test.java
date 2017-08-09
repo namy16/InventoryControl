@@ -53,6 +53,6 @@ public class Test {
 
 //        EmailSender sd = new EmailSender();
 //        String message="Hi There"+System.lineSeparator()+"Requirement of asdasdad ";
-//        sd.sendEmail("namanparashar91@gmail.com",message,"Vehicle Model Request");
+//        sd.sendEmail("saurabh945644@gmail.com",message,"Vehicle Model Request");
     }
 }

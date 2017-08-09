@@ -20,7 +20,7 @@ try{
                 props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
                 props.put("mail.smtp.socketFactory.fallback", "false");
 
-                SendGrid sendgrid = new SendGrid("namanparashar", "EJt#480IGx##");
+                SendGrid sendgrid = new SendGrid("saurabh945644", "passwd@123");
 
                 SendGrid.Email email = new SendGrid.Email();
                 email.addTo(user_email);
