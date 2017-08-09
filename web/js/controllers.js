@@ -212,9 +212,6 @@ app.controller('postVehicleModel', function ($scope, $http, myModals) {
     console.log("inpostctrl");
     $scope.postData = function (modelName,price, bodyType, transmission, color, image, units, description, releaseDate) {
         myModals.alert('success', $scope.successMessage, 'small');
-        //console.log("value" +$scope.file.files[0].name);
-        //    alert("name "+$scope.name);
-
         var vdata = {
 
             modelId : automodelId,
@@ -257,7 +254,7 @@ app.controller('postVehicleModel', function ($scope, $http, myModals) {
     }
 });
 
-app.controller('postSparePart', function ($scope, $http) {
+app.controller('postSparePart', function ($scope, $http, myModals) {
     var autosPartId=Math.floor(Math.random() * 900000000) + 100000000;
     console.log($scope.name);
     $scope.sparePartId= null;
@@ -269,7 +266,7 @@ app.controller('postSparePart', function ($scope, $http) {
     $scope.orderedOn = null;
     console.log("inpost");
     $scope.postsData = function (vehicleModelId, sparePartName, price, image, units, orderedOn) {
-
+        myModals.alert('success', $scope.successMessage, 'small');
         var e = document.getElementById("mySelect");
         var strUser = e.options[e.selectedIndex].text;
         var vid=strUser.split("---");
@@ -309,7 +306,7 @@ app.controller('postSparePart', function ($scope, $http) {
     }
 });;
 
-app.controller('postVehicleModelRequest', function ($scope, $http) {
+app.controller('postVehicleModelRequest', function ($scope, $http, myModals) {
     $scope.requestId = null;
     $scope.modelId = null;
     $scope.isProcessed = null;
@@ -318,6 +315,7 @@ app.controller('postVehicleModelRequest', function ($scope, $http) {
     $scope.mfEmailId = null;
     console.log("inpost");
     $scope.postData = function (modelId, isProcessed, units,mfEmailId, orderDate) {
+        myModals.alert('success', $scope.successMessage, 'small');
         var e = document.getElementById("mySelect2");
         var strUser = e.options[e.selectedIndex].text;
         var vid=strUser.split("---");
@@ -343,7 +341,7 @@ app.controller('postVehicleModelRequest', function ($scope, $http) {
         });
     };
 });
-app.controller('postSparePartRequest', function ($scope, $http) {
+app.controller('postSparePartRequest', function ($scope, $http, myModals) {
     $scope.requestId = null;
     $scope.sparePartId = null;
     $scope.isProcessed = null;
@@ -352,6 +350,7 @@ app.controller('postSparePartRequest', function ($scope, $http) {
     $scope.orderDate = null;
     //console.log("inpost");
     $scope.postData = function (sparePartId, isProcessed, units,mfEmailId, orderDate) {
+        myModals.alert('success', $scope.successMessage, 'small');
         var e = document.getElementById("mySelect3");
         var strUser = e.options[e.selectedIndex].text;
         var vid=strUser.split("---");
@@ -375,7 +374,7 @@ app.controller('postSparePartRequest', function ($scope, $http) {
         });
     };
 });
-app.controller('updateVehicleModelRequest', function ($scope, $http) {
+app.controller('updateVehicleModelRequest', function ($scope, $http, myModals) {
     $scope.requestId = null;
     $scope.modelId = null;
     $scope.isProcessed = null;
@@ -384,6 +383,7 @@ app.controller('updateVehicleModelRequest', function ($scope, $http) {
     $scope.orderDate = null;
     console.log("inposter");
     $scope.updateData = function (requestId, modelId, isProcessed, units,mfEmailId, orderDate) {
+        myModals.alert('success', $scope.successMessage, 'small');
         var data = {
             requestId : requestId,
             modelId : modelId,
@@ -406,7 +406,7 @@ app.controller('updateVehicleModelRequest', function ($scope, $http) {
 });
 
 
-app.controller('updateSparePartRequest', function ($scope, $http) {
+app.controller('updateSparePartRequest', function ($scope, $http, myModals) {
     $scope.requestId = null;
     $scope.sparePartId = null;
     $scope.isProcessed = null;
@@ -415,6 +415,7 @@ app.controller('updateSparePartRequest', function ($scope, $http) {
     $scope.orderDate = null;
     console.log("inposter");
     $scope.updateData = function (requestId, modelId, isProcessed, units,mfEmailId, orderDate) {
+        myModals.alert('success', $scope.successMessage, 'small');
         var data = {
             requestId : requestId,
             sparePartId : modelId,
