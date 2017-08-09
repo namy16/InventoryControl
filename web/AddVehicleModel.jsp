@@ -153,7 +153,7 @@
             <div class="form-group" >
                 <label class="col-md-4 control-label" ></label>
                 <div class="col-md-4" style="padding-left: 13% ">
-                    <button style="background: #011635;color: white" type="submit" class="btn" ng-click="postData(modelName,price, bodyType, transmission, color, image, units, description, releaseDate);addVehicleModel()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add </button>
+                    <button style="background: #011635;color: white" type="submit" class="btn" ng-click="postData(modelName,price, bodyType, transmission, color, image, units, description, releaseDate)"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add </button>
                 </div>
             </div>
 

@@ -47,7 +47,7 @@ public class UserDaoImpl {
         Session session = factory.openSession();
         Query q = session.createQuery("from User where emailId = :emailId");
         q.setParameter("emailId", emailId);
-        if(q.getSingleResult() == null){
+        if(q.getResultList().size() == 0){
             return null;
         }
         return (User) q.getSingleResult();
