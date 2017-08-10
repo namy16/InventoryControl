@@ -13,11 +13,11 @@ import java.util.List;
  */
 public class Test {
     public static void main(String[] args) {
-//        VehicleModelDaoImpl v = new VehicleModelDaoImpl();
-//        int result=v.addVehicleModel(211231232,"Bmw3213",212,"self shifting","red","none","car",20,"jkjk",new Date());
-//   if(result ==1) {
-//       System.out.println("Success");
-//   }
+
+
+        VehicleModelDaoImpl v = new VehicleModelDaoImpl();
+        int result=v.addVehicleModel(211231232,"Bmw3213",1232,"self shifting","red","none","car",20,"jkjk",new Date());
+
 //         SparePartDaoImpl v1232 = new SparePartDaoImpl();
 //        int result=v1232.addSparePart(123,1212,23443,"rear Wheel","Koala.jpg",2,new Date());
 //

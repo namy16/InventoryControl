@@ -214,7 +214,7 @@ app.controller('postVehicleModel', function ($scope, $http, myModals) {
         myModals.alert('success', $scope.successMessage, 'small');
         var vdata = {
 
-            modelId : automodelId,
+            modelId : 211231232,
             modelName : modelName,
             price:price,
             transmission : transmission,

@@ -1,5 +1,6 @@
 package dao;
 
+import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,6 +17,8 @@ import java.util.List;
  * Created by parashan on 8/2/2017.
  */
 public class VehicleModelDaoImpl {
+
+    final static Logger logger = Logger.getLogger(VehicleModelDaoImpl.class);
     static SessionFactory factory;
 
     public int addVehicleModel(int modelId, String modelName,int price,String transmission,String color,String image,String bodyType,int units,String description,Date releaseDate){
@@ -32,7 +35,9 @@ public class VehicleModelDaoImpl {
             tx.commit();
         }catch (HibernateException e) {
             if (tx!=null) tx.rollback();
-            e.printStackTrace();
+
+            logger.debug(e);
+
         }finally {
             session.close();
         }

@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>Admin</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <script src="https://use.fontawesome.com/9d0c2e3dbb.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -94,9 +94,9 @@
     <div id="sidebar-wrapper">
       <nav id="spy">
         <ul class="sidebar-nav nav">
-          <li class="sidebar-brand">
+          <li class="sidebar-brand" style="padding-bottom: 35%">
             <a href="#home" ng-click="addStatistics()">
-              <span class="fa fa-user-o">&nbsp;Admin</span></a>
+              <span><img src="images/Koala.jpg" class="img-circle" alt="Cinque Terre" width="60" height="60"> &nbsp;Admin</span></a><br><br>
           </li>
           <li >
             <a href="#anch1" ng-click="addVehicleModel()" >
@@ -146,6 +146,11 @@
           <li>
             <a href="#anch11" ng-click="viewSparePartRequest()">
               <span class="fa fa-server" ><span style="font-family: Arial; font-size: 110%" >View Requested SpareParts</span></span>
+            </a>
+          </li>
+          <li>
+            <a href="#anch12" ng-click="settings()">
+              <i class="fa fa-cog" aria-hidden="true"></i><span style="font-family: Arial; font-size: 110%" >Settings</span></span>
             </a>
           </li>
         </ul>
