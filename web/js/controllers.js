@@ -7,6 +7,7 @@ app.controller('myController', function($scope) {
     $scope.addVehicleModel = function() {
         //whenever myFunc() is called, display of above div is toggled
         document.getElementById("statistics").style.display="none";
+        document.getElementById("profilePicture").style.display="none";
         $scope.addvehiclemodel = true;
         $scope.addUrl=function () {
             return '/AddVehicleModel.jsp';
@@ -14,6 +15,7 @@ app.controller('myController', function($scope) {
     };
     $scope.viewVehicleModels = function() { //whenever myFunc() is called, display of above div is toggled
         document.getElementById("statistics").style.display="none";
+        document.getElementById("profilePicture").style.display="none";
         $scope.addvehiclemodel = true;
         $scope.addUrl = function () {
             return '/ViewVehicleModels.jsp';
@@ -22,6 +24,7 @@ app.controller('myController', function($scope) {
     $scope.addSparePart = function() {
         //whenever myFunc() is called, display of above div is toggled
         document.getElementById("statistics").style.display="none";
+        document.getElementById("profilePicture").style.display="none";
         $scope.addvehiclemodel = true;
         $scope.addUrl=function () {
             return '/AddSparePart.jsp';
@@ -30,6 +33,7 @@ app.controller('myController', function($scope) {
     $scope.viewSpareParts = function() {
         //whenever myFunc() is called, display of above div is toggled
         document.getElementById("statistics").style.display="none";
+        document.getElementById("profilePicture").style.display="none";
         $scope.addvehiclemodel = true;
         $scope.addUrl=function () {
             return '/ViewSpareParts.jsp';
@@ -38,6 +42,7 @@ app.controller('myController', function($scope) {
     $scope.soldVehicleModels = function() {
         //whenever myFunc() is called, display of above div is toggled
         document.getElementById("statistics").style.display="none";
+        document.getElementById("profilePicture").style.display="none";
         $scope.addvehiclemodel = true;
         $scope.addUrl=function () {
             return '/SoldVehicleModels.jsp';
@@ -46,6 +51,7 @@ app.controller('myController', function($scope) {
     $scope.soldSpareParts = function() {
         //whenever myFunc() is called, display of above div is toggled
         document.getElementById("statistics").style.display="none";
+        document.getElementById("profilePicture").style.display="none";
         $scope.addvehiclemodel = true;
         $scope.addUrl=function () {
             return '/SoldSpareParts.jsp';
@@ -62,6 +68,7 @@ app.controller('myController', function($scope) {
     $scope.requestSparePart = function() {
         //whenever myFunc() is called, display of above div is toggled
         document.getElementById("statistics").style.display="none";
+        document.getElementById("profilePicture").style.display="none";
         $scope.addvehiclemodel = true;
         $scope.addUrl=function () {
             return '/SparePartRequest.jsp';
@@ -70,6 +77,7 @@ app.controller('myController', function($scope) {
     $scope.viewVehicleModelRequest = function() {
         //whenever myFunc() is called, display of above div is toggled
         document.getElementById("statistics").style.display="none";
+        document.getElementById("profilePicture").style.display="none";
         $scope.addvehiclemodel = true;
         $scope.addUrl=function () {
             return '/ViewVehicleModelRequest.jsp';
@@ -78,6 +86,7 @@ app.controller('myController', function($scope) {
     $scope.viewSparePartRequest = function() {
         //whenever myFunc() is called, display of above div is toggled
         document.getElementById("statistics").style.display="none";
+        document.getElementById("profilePicture").style.display="none";
         $scope.addvehiclemodel = true;
         $scope.addUrl=function () {
             return '/ViewSparePartRequest.jsp';
@@ -86,10 +95,18 @@ app.controller('myController', function($scope) {
     $scope.addStatistics = function() {
         //whenever myFunc() is called, display of above div is toggled
         document.getElementById("statistics").style.display="block";
+        document.getElementById("profilePicture").style.display="none";
         $scope.addvehiclemodel = false;
         // $scope.addUrl = function () {
         //     return '/Statistics.html';
         // }
+    };
+    $scope.settings = function() {
+        //whenever myFunc() is called, display of above div is toggled
+        document.getElementById("profilePicture").style.display="block";
+        document.getElementById("statistics").style.display="none";
+        $scope.addvehiclemodel = false;
+
     };
 
 });

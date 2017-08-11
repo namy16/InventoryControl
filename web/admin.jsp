@@ -50,11 +50,12 @@
 
     </script>
   </head>
-  <body ng-app="myApp" ng-controller="myController">
+  <body ng-app="myApp" ng-controller="myController" onload="changeImageNow()">
 
   <%
   request.getSession(false);
   if(session.getAttribute("email")!=null ){
+     String email=session.getAttribute("email").toString();
 
   %>
 
@@ -96,7 +97,7 @@
         <ul class="sidebar-nav nav">
           <li class="sidebar-brand" style="padding-bottom: 35%">
             <a href="#home" ng-click="addStatistics()">
-              <span><img src="images/Koala.jpg" class="img-circle" alt="Cinque Terre" width="60" height="60"> &nbsp;Admin</span></a><br><br>
+              <span><img  id="profilepic"  class="img-circle"  width="60" height="60"> &nbsp;<%=session.getAttribute("name").toString()%></span></a><br><br>
           </li>
           <li >
             <a href="#anch1" ng-click="addVehicleModel()" >
@@ -150,7 +151,7 @@
           </li>
           <li>
             <a href="#anch12" ng-click="settings()">
-              <i class="fa fa-cog" aria-hidden="true"></i><span style="font-family: Arial; font-size: 110%" >Settings</span></span>
+              <span class="fa fa-cog" ><span style="font-family: Arial; font-size: 110%" >Settings</span></span>
             </a>
           </li>
         </ul>
@@ -171,6 +172,126 @@
         </div>
     <div id ="statistics" ng-include="'/Statistics.html'">
     </div>
+
+
+    <div id ="profilePicture" style="display: none;padding-top: 5%">
+      <div class="row" ng-controller="settingsController">
+        <div class="panel" style="border-style: none;">
+          <div class="panel-heading" id="mypanelheading" >
+            <h3 class="mypanelheading"> Settings</h3>
+          </div>
+        </div>
+        <form class="well form-horizontal" name="myForm7" action=" " method="post"  id="contact_form"  enctype="multipart/form-data" ng-controller="postSparePart">
+          <fieldset >
+
+            <div class="form-group" >
+              <label class="col-md-4 control-label" style="color: #011635;"></label>
+              <div class="col-md-4 inputGroupContainer"  >
+                <div class="input-group" style="align-content: center;padding-left: 70px">
+                  <b style="font-family: Arial;font-size: medium;color: white;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change Name</b>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label mycolor" style="color: white;"></label>
+              <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-info"  aria-hidden="true"></i></span>
+                  <input name="spName" placeholder="Enter New Name" class="form-control"  type="text" ng-model="sparePartName" required>
+                </div>
+              </div>
+              <span ><button type="button" class="btn" style="background: #011635;color: white;" onclick="ChangeName()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Change </button></span>
+            </div>
+            <br>
+            <div class="form-group" >
+              <label class="col-md-4 control-label" style="color: #011635;"></label>
+              <div class="col-md-4 inputGroupContainer"  >
+                <div class="input-group" style="align-content: center;padding-left: 70px">
+                  <b style="font-family: Arial;font-size: medium;color: white;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change Password</b>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label mycolor" style="color: white"></label>
+              <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                  <input name="password" placeholder="Enter Current Password" class="form-control"  type="text" ng-model="password" required>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="form-group">
+              <label class="col-md-4 control-label mycolor" style="color: white"></label>
+              <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                  <input name="newpassword" placeholder="Enter New Password" class="form-control"  type="text" ng-model="newpassword" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group" >
+              <label class="col-md-4 control-label" ></label>
+              <div class="col-md-4" style="padding-left: 13% ">
+                <button style="background: #011635;color: white;position: fixed;top:46%;left:72%" type="button" class="btn" ng-click=""><i class="fa fa-pencil-square-o" aria-hidden="true"></i> &nbsp;Change</button>
+              </div>
+            </div>
+            <!-- Text input-->
+
+
+            <div class="form-group" >
+              <label class="col-md-4 control-label" style="color: #011635;"></label>
+              <div class="col-md-4 inputGroupContainer"  >
+                <div class="input-group" style="align-content: center;padding-left: 70px">
+                  <b style="font-family: Arial;font-size: medium;color: white;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change Profile Picture</b>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group" id="showButton">
+              <label class="col-md-4 control-label" style="color: white;"></label>
+              <div class="col-md-4 inputGroupContainer" >
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-file-picture-o"></i></span>
+                  <input name="file" id="vfiles" class="form-control" type="file" files-input ng-model="fileArray" multiple required>
+                </div>
+              </div>
+              <span ><button type="button" id="profileButton" class="btn" value="<%=email%>" style="background: #011635;color: white;" onclick="ChangeProfilePicture()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Change</button></span>
+            </div>
+            <div class="form-group" id="showLoading" style="display: none">
+              <label class="col-md-4 control-label" style="color: #011635;"></label>
+              <div class="col-md-4 inputGroupContainer"  >
+                <div class="input-group" style="align-content: center;padding-left: 45%">
+                  <img src="images/loaders.gif">
+                </div>
+              </div>
+            </div>
+            <div class="form-group" id="showMessage" style="display: none">
+              <label class="col-md-4 control-label" style="color: #011635;"></label>
+              <div class="col-md-4 inputGroupContainer"  >
+                <div class="input-group" style="align-content: center;padding-left: 70px">
+                  <i  style="color: #42f445;" class="fa fa-check fa-2x" aria-hidden="true">&nbsp;<b style="font-family: Arial;font-size: medium">Profile Picture Changed!!</b></i>
+                </div>
+              </div>
+
+            </div>
+
+
+
+          </fieldset>
+
+        </form>
+
+      </div><!-- /.container -->
+
+    </div>
+
   </div>
 
 

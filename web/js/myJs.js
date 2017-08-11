@@ -18,12 +18,12 @@ function CheckCredentials()
     var u=document.getElementById("form-username").value;
     var p=document.getElementById("form-password").value;
     xmlhttp=new XMLHttpRequest();
-    xmlhttp.onreadystatechange=f2;
+    xmlhttp.onreadystatechange=f3;
     xmlhttp.open("GET","CheckUsername.jsp?id1="+u+"&id2="+p,true);
     xmlhttp.send(null);
     //console.log("iiiiiiii");
 }
-function f2()
+function f3()
 {
     if(xmlhttp.readyState===4 && xmlhttp.status===200)
     {

@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.*;
+
+import dao.UserDaoImpl;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
@@ -55,12 +57,11 @@ public class AjaxFileServlet extends HttpServlet {
                 fileItem = it.next();
                 boolean isFormField = fileItem.isFormField();
                 if (isFormField) {
-                    System.out.println("<td>regular form field</td><td>FIELD NAME: " + fileItem.getFieldName()
+                    System.out.println("<td>regular form field</td><td>FIELD NAME: " + fileItem.getFieldName()+"  name:  "+fileItem.getName()
                 //            "<br/>STRING: + fileItem.getString() " +"<br/>NAME: " + fileItem.getName()+""+
                   //          "<br/>SIZE (BYTES): " + fileItem.getSize()
                     //                +"<br/>TO STRING: " + fileItem.toString()
                     );
-
                     InputStream image_is = fileItem.getInputStream();
 
                     //write all content from above InputStream to a file
@@ -69,7 +70,7 @@ public class AjaxFileServlet extends HttpServlet {
 
 
                 } else {
-                    System.out.println("<td>file form field</td><td>FIELD NAME: " + fileItem.getFieldName()
+                    System.out.println("<td>file form field</td><td>FIELD NAME: " + fileItem.getFieldName()+"  nammm:  "+fileItem.getName()
                                     //"<br/>STRING: " + fileItem.getString() +
                        //             "<br/>NAME: " + fileItem.getName()+"<br/>STRING: " + fileItem.getString()+
                             //"<br/>CONTENT TYPE: " + fileItem.getContentType() +
@@ -84,18 +85,22 @@ public class AjaxFileServlet extends HttpServlet {
 
                 //out.println("</tr>");
             }
+
            // out.println("</table>");
             //String s=fileItem.getString();
             //String j =s.substring(12);
             String pic =fileItem.getName();
+            System.out.println(pic);
             if(pic!=null){
             String root=getServletContext().getRealPath("images");
             File abc=new File(root + "/" +pic);
             fileItem.write(abc);
             out.println("success");
+
             }
-            else
+            else {
                 out.println("fail");
+            }
             //response.sendRedirect("INSERT_IMAGE.jsp");
         } catch (Exception e) {
             e.printStackTrace();

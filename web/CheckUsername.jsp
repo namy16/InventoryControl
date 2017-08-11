@@ -10,7 +10,7 @@ if(ud!=null) {
     if (email.equals(ud.getEmailId()) && password.equals(ud.getPassword())) {
         request.getSession(true);
         session.setAttribute("email", email);
-
+        session.setAttribute("name",ud.getName());
         response.sendRedirect("/admin.jsp");
     }else{
         out.print("error");

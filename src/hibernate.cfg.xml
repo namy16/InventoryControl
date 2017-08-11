@@ -3,7 +3,6 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hbm2ddl.auto">update</property>
-        <property name="show_sql">true</property><!-- can be used for debuggin purpose -->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/inventory?zeroDateTimeBehavior=convertToNull</property>

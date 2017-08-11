@@ -77,4 +77,31 @@ public class UserDaoImpl {
         return null;
     }
 
+    public int updateUserPassword(String email, String password) {
+        Configuration configuration = new Configuration();
+        configuration.configure();
+        factory = configuration.buildSessionFactory();
+        Session session = factory.openSession();
+        Object o = session.load(User.class, email);
+        User v1 = (User) o;
+        Transaction tx = session.beginTransaction();
+        v1.setPassword(password);
+        tx.commit();
+        session.close();
+        return  1;
+    }
+    public int updateUserName(String email, String name) {
+        Configuration configuration = new Configuration();
+        configuration.configure();
+        factory = configuration.buildSessionFactory();
+        Session session = factory.openSession();
+        Object o = session.load(User.class, email);
+        User v1 = (User) o;
+        Transaction tx = session.beginTransaction();
+        v1.setPassword(name);
+        tx.commit();
+        session.close();
+        return  1;
+    }
+
 }
